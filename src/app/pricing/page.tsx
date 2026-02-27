@@ -1,38 +1,53 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { CheckCircle2, ShieldCheck, ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import { useAuth } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
+import { initializePaddle, Paddle } from "@paddle/paddle-js";
 
 export default function PricingPage() {
-    const [isRedirecting, setIsRedirecting] = useState(false);
-    const { isLoaded, isSignedIn } = useAuth();
+    const [paddle, setPaddle] = useState<Paddle>();
+    const { isLoaded, isSignedIn, user } = useUser();
 
-    const handleUpgrade = async () => {
-        if (!isSignedIn) {
-            // Simple client-side catch, Clerk handles robust redirection generally
+    // Download and initialize Paddle instance from CDN
+    useEffect(() => {
+        initializePaddle({
+            environment: process.env.NEXT_PUBLIC_PADDLE_ENV === 'sandbox' ? 'sandbox' : 'production',
+            token: process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN!
+        }).then(
+            (paddleInstance: Paddle | undefined) => {
+                if (paddleInstance) {
+                    setPaddle(paddleInstance);
+                }
+            },
+        );
+    }, []);
+
+    const handleUpgrade = () => {
+        if (!isSignedIn || !user) {
             alert("Please log in to upgrade.");
             return;
         }
 
-        setIsRedirecting(true);
-        try {
-            const response = await fetch("/api/stripe/checkout", {
-                method: "POST",
+        if (paddle) {
+            paddle.Checkout.open({
+                settings: {
+                    displayMode: "overlay",
+                    theme: "light",
+                },
+                items: [
+                    {
+                        priceId: process.env.NEXT_PUBLIC_PADDLE_PRO_PRICE_ID!,
+                        quantity: 1
+                    }
+                ],
+                customData: {
+                    userId: user.id
+                }
             });
-            const data = await response.json();
-            if (data.url) {
-                window.location.href = data.url;
-            } else {
-                throw new Error("No URL returned");
-            }
-        } catch (error) {
-            console.error(error);
-            alert("Failed to start checkout process.");
-            setIsRedirecting(false);
         }
     };
 
@@ -95,15 +110,15 @@ export default function PricingPage() {
                                 variant="solid"
                                 className="w-full bg-neutral-900 text-white hover:bg-neutral-800"
                                 onClick={handleUpgrade}
-                                disabled={isRedirecting || !isLoaded}
+                                disabled={!isLoaded || !paddle}
                             >
-                                {isRedirecting ? "Redirecting to Stripe..." : "Upgrade to Pro"}
+                                {!paddle ? "Loading Checkout..." : "Upgrade to Pro"}
                             </Button>
                         </Card>
                     </div>
 
                     <div className="mt-12 text-center text-sm text-neutral-500">
-                        <p>Payments are securely processed by Stripe. You can cancel your subscription at any time.</p>
+                        <p>Payments are securely processed by Paddle. You can cancel your subscription at any time.</p>
                     </div>
                 </div>
             </main>

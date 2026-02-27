@@ -11,12 +11,13 @@
   "dependencies": {
     "@ai-sdk/openai": "^3.0.35",
     "@clerk/nextjs": "^6.38.3",
+    "@paddle/paddle-js": "^1.6.2",
+    "@paddle/paddle-node-sdk": "^3.6.0",
     "ai": "^6.0.103",
     "lucide-react": "^0.575.0",
     "next": "16.1.6",
     "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "stripe": "^20.4.0"
+    "react-dom": "19.2.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
