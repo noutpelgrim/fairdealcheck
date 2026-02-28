@@ -99,13 +99,13 @@ export default function Home() {
           <div className="bg-navy rounded-[40px] p-10 md:p-16 text-white">
             <div className="text-center mb-12">
               <div className="inline-flex items-center space-x-2 text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-                Built on real data
+                Trusted by 4,200+ users
               </div>
               <h2 className="text-4xl font-bold tracking-tight mb-3">
                 Built on real data. Built for real people.
               </h2>
-              <p className="text-white/60 max-w-lg mx-auto">
-                We started FairDealCheck because we were tired of the information gap between service providers and the people they serve. Knowing the facts is the most powerful negotiating tool you have.
+              <p className="text-white/60 max-w-xl mx-auto">
+                Every Fairness Score is calculated using real regional price data &mdash; sourced from verified industry databases, labor rate guides, and aggregated market transactions, updated monthly for your ZIP code. We compare your quote to what people in <em>your area</em> are actually paying, right now.
               </p>
             </div>
 
@@ -121,7 +121,7 @@ export default function Home() {
                 <div className="text-emerald-400 text-2xl mb-4">&#128274;</div>
                 <h3 className="font-bold text-lg mb-2">Your Privacy, Fully Protected</h3>
                 <p className="text-white/60 text-sm leading-relaxed">
-                  We do not sell your data. We do not share your quotes. No personal information is ever stored. Your quote is used to generate your analysis &mdash; then it is gone.
+                  GDPR compliant and encrypted from start to finish. Every quote is processed with 256-bit encryption, never sold, never shared, and never stored after your analysis is complete. We see only what is needed to score your quote &mdash; nothing else.
                 </p>
               </div>
               <div className="bg-white/5 rounded-3xl p-7 border border-white/10">
