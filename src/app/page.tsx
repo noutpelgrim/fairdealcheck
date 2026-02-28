@@ -31,11 +31,11 @@ export default function Home() {
             Stop wondering if you’re <br /> getting ripped off.
           </h1>
           <p className="text-lg md:text-xl text-navy/60 max-w-xl mx-auto mb-10 leading-relaxed">
-            Upload any service quote. Get an instant Fairness Score and expert scripts to negotiate lower prices.
+            Upload any service quote and get an instant Fairness Score, real market rates, and word-for-word scripts to negotiate a lower price — in under 60 seconds.
           </p>
           <Link href="/analyze">
             <Button size="lg" className="h-14 px-8 rounded-full bg-navy text-white hover:bg-navy-light shadow-xl shadow-navy/10 transition-all font-semibold">
-              Check Your Quote
+              Check My Quote — It&apos;s Free
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </Link>
