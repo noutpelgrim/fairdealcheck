@@ -40,3 +40,122 @@ body {
     background-image: linear-gradient(to bottom, #020617, rgba(2, 6, 23, 0.6));
   }
 }
+/* Blog article content styles */
+.blog-content h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.blog-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.blog-content p {
+  color: rgba(2, 6, 23, 0.70);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  font-size: 1.0625rem;
+}
+
+.blog-content ul {
+  margin-bottom: 1.25rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.blog-content ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: rgba(2, 6, 23, 0.70);
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+
+.blog-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: #10b981;
+}
+
+.blog-content blockquote {
+  border-left: 3px solid #10b981;
+  padding: 1rem 1.5rem;
+  background-color: #f0fdf4;
+  border-radius: 0 1rem 1rem 0;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: rgba(2, 6, 23, 0.75);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9375rem;
+}
+
+.blog-content table thead tr {
+  background-color: var(--color-navy);
+  color: #ffffff;
+}
+
+.blog-content table thead th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.blog-content table tbody tr {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.blog-content table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.blog-content table tbody td {
+  padding: 0.75rem 1rem;
+  color: rgba(2, 6, 23, 0.70);
+}
+
+.blog-content table tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.blog-content .callout {
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  margin: 1.5rem 0;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.blog-content .callout.warning {
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #92400e;
+}
+
+.blog-content .callout.info {
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+  color: #0c4a6e;
+}
