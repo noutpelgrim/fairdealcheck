@@ -41,6 +41,56 @@ export default function Home() {
           </Link>
         </section>
 
+        {/* How It Works Section */}
+        <section className="pb-24 px-6 max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+              How It Works
+            </div>
+            <h2 className="text-4xl font-bold text-navy tracking-tight mb-3">
+              Three steps to a fairer price.
+            </h2>
+            <p className="text-navy/60 max-w-md mx-auto">
+              Upload your quote, see your score, and get the exact words to negotiate &mdash; all in under 60 seconds.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Step 1 */}
+            <div className="relative flex flex-col items-start p-8 bg-neutral-50 rounded-3xl border border-neutral-100">
+              <div className="w-12 h-12 rounded-2xl bg-navy text-white flex items-center justify-center text-lg font-bold mb-6">
+                1
+              </div>
+              <h3 className="text-xl font-bold text-navy mb-3">Upload Your Quote</h3>
+              <p className="text-navy/60 leading-relaxed text-sm">
+                Paste or upload any service quote &mdash; auto repair, plumber, contractor, dentist. We support all major service categories and most document formats.
+              </p>
+            </div>
+
+            {/* Step 2 */}
+            <div className="relative flex flex-col items-start p-8 bg-neutral-50 rounded-3xl border border-neutral-100">
+              <div className="w-12 h-12 rounded-2xl bg-navy text-white flex items-center justify-center text-lg font-bold mb-6">
+                2
+              </div>
+              <h3 className="text-xl font-bold text-navy mb-3">Get Your Fairness Score</h3>
+              <p className="text-navy/60 leading-relaxed text-sm">
+                We compare your quote against thousands of verified real-world prices in your area. Receive a 0&ndash;100 score and a clear breakdown of every overpriced line item.
+              </p>
+            </div>
+
+            {/* Step 3 */}
+            <div className="relative flex flex-col items-start p-8 bg-emerald-50 rounded-3xl border border-emerald-100">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-lg font-bold mb-6">
+                3
+              </div>
+              <h3 className="text-xl font-bold text-navy mb-3">Negotiate With Confidence</h3>
+              <p className="text-navy/60 leading-relaxed text-sm">
+                No confrontation needed. We generate polite, professional negotiation scripts tailored to your quote &mdash; so you know exactly what to say to get a lower price, every time.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Product Preview Section */}
         <section className="pb-32 px-6 max-w-5xl mx-auto">
           <div className="relative bg-neutral-50 rounded-[40px] p-8 md:p-16 border border-neutral-100 overflow-hidden">
