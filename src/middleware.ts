@@ -17,9 +17,10 @@ export default async function middleware(req: any, event: any) {
     const ua = req.headers.get('user-agent') || '';
     const isBot = ua.toLowerCase().includes('chatgpt') || ua.toLowerCase().includes('bot') || ua.toLowerCase().includes('spider') || ua.toLowerCase().includes('crawler');
 
-    // If it's a bot and Clerk tries to do a dev-mode handshake redirect (307), suppress the redirect
+    // If it's a bot and Clerk tries to redirect (auth/handshake), suppress the redirect
     // and just render the page normally so bots can see the public content.
-    if (isBot && response?.status === 307) {
+    const isRedirect = [301, 302, 307, 308].includes(response?.status || 0);
+    if (isBot && isRedirect) {
         // We still need to pass Clerk's auth headers downstream so auth() doesn't crash on the page
         const headers = new Headers(req.headers);
         headers.set('x-clerk-auth-reason', 'bot-bypass');
