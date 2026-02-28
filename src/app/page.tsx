@@ -1,164 +1,102 @@
-import Image from "next/image";
+"use client";
+
+import React from "react";
 import Link from "next/link";
+import { ArrowRight, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
-import { CheckCircle2, FileText, BarChart3, ShieldCheck } from "lucide-react";
-import { SignInButton, SignUpButton, UserButton, SignedIn, SignedOut } from "@clerk/nextjs";
+import { FairnessGauge } from "@/components/landing/FairnessGauge";
+import { AnalysisPreview } from "@/components/landing/AnalysisPreview";
+import { NegotiationScript } from "@/components/landing/NegotiationScript";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="w-full border-b border-neutral-100 bg-white/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100">
+        <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <ShieldCheck className="h-6 w-6 text-neutral-900" />
-            <span className="font-semibold text-lg tracking-tight">FairDealCheck</span>
+            <ShieldCheck className="h-6 w-6 text-navy" />
+            <span className="font-bold text-lg tracking-tight text-navy">FairDeal</span>
           </div>
-          <div className="flex items-center space-x-4">
-            <SignedIn>
-              <Link href="/dashboard">
-                <Button variant="ghost" size="sm">Dashboard</Button>
-              </Link>
-              <UserButton />
-            </SignedIn>
-            <SignedOut>
-              <SignInButton mode="modal">
-                <Button variant="ghost" size="sm">Log In</Button>
-              </SignInButton>
-              <SignUpButton mode="modal">
-                <Button variant="solid" size="sm">Get Started</Button>
-              </SignUpButton>
-            </SignedOut>
-          </div>
+          <Link href="/analyze">
+            <span className="text-sm font-medium text-navy hover:text-emerald-600 transition-colors">Analyze Now</span>
+          </Link>
         </div>
       </nav>
 
-      <main className="flex-grow">
+      <main>
         {/* Hero Section */}
-        <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center">
-          <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight text-neutral-900 mb-6">
-            You work hard for your money. <br className="hidden sm:block" />
-            <span className="text-neutral-500">Stop letting them guess your budget.</span>
+        <section className="pt-32 pb-20 px-6 max-w-5xl mx-auto text-center">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-navy mb-6 leading-[1.1]">
+            Stop wondering if you’re <br /> getting ripped off.
           </h1>
-          <p className="text-xl text-neutral-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-            We know you hate haggling. Paste your quote, get instant data-backed market rates, and copy-paste our expert negotiation scripts to ensure you never overpay again.
+          <p className="text-lg md:text-xl text-navy/60 max-w-xl mx-auto mb-10 leading-relaxed">
+            Upload any service quote. Get an instant Fairness Score and expert scripts to negotiate lower prices.
           </p>
-          <div className="flex justify-center">
-            <Link href="/analyze">
-              <Button variant="solid" size="lg" className="rounded-full shadow-soft-hover transition-all text-lg px-8 py-6">
-                Check My Quote Now
-              </Button>
-            </Link>
-          </div>
+          <Link href="/analyze">
+            <Button size="lg" className="h-14 px-8 rounded-full bg-navy text-white hover:bg-navy-light shadow-xl shadow-navy/10 transition-all font-semibold">
+              Check Your Quote
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </Link>
         </section>
 
-        {/* Feature Sections */}
-        <section className="py-24 bg-neutral-50 border-y border-neutral-100">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-4">Financial intelligence for everyday expenses.</h2>
-              <p className="text-neutral-600">The tools you need to level the playing field with service providers.</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Feature 1 */}
-              <Card className="hover:shadow-soft-hover transition-shadow text-left border-neutral-200">
-                <div className="h-12 w-12 rounded-lg bg-neutral-900 flex items-center justify-center mb-6">
-                  <BarChart3 className="h-6 w-6 text-white" />
+        {/* Product Preview Section */}
+        <section className="pb-32 px-6 max-w-5xl mx-auto">
+          <div className="relative bg-neutral-50 rounded-[40px] p-8 md:p-16 border border-neutral-100 overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <div className="inline-flex items-center space-x-2 text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                    Core Analysis
+                  </div>
+                  <h2 className="text-3xl font-bold text-navy tracking-tight">Audit labor and parts instantly.</h2>
+                  <p className="text-navy/60 leading-relaxed font-medium">
+                    We compare your quote against thousands of regional price points to flag hidden markups.
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Data-Backed Intel</h3>
-                <p className="text-neutral-600">
-                  Stop wondering if you're being ripped off. We analyze local market rates to tell you exactly where your quote stands.
-                </p>
-              </Card>
 
-              {/* Feature 2 */}
-              <Card className="hover:shadow-soft-hover transition-shadow text-left border-neutral-200">
-                <div className="h-12 w-12 rounded-lg bg-neutral-900 flex items-center justify-center mb-6">
-                  <FileText className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Done-For-You Scripts</h3>
-                <p className="text-neutral-600">
-                  Hate confrontation? Us too. Use our psychology-backed, copy-paste responses to push back firmly but professionally.
-                </p>
-              </Card>
-
-              {/* Feature 3 */}
-              <Card className="hover:shadow-soft-hover transition-shadow text-left border-neutral-200">
-                <div className="h-12 w-12 rounded-lg bg-neutral-900 flex items-center justify-center mb-6">
-                  <ShieldCheck className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Financial Confidence</h3>
-                <p className="text-neutral-600">
-                  Turn anxiety into empowerment. Walk into any mechanic, dentist, or contractor with the confidence of an expert.
-                </p>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing Section */}
-        <section className="py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Invest in your financial peace of mind.</h2>
-            <p className="text-neutral-600">One negotiation pays for the tool. Choose your tier.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Free Tier */}
-            <Card padding="lg" className="flex flex-col border-neutral-200">
-              <div className="mb-8">
-                <h3 className="text-2xl font-semibold mb-2">Free</h3>
-                <p className="text-neutral-500 mb-6">For the occasional check.</p>
-                <div className="flex items-baseline text-4xl font-extrabold text-neutral-900">
-                  €0<span className="text-lg font-medium text-neutral-500 ml-1">/mo</span>
+                {/* Simplified script preview */}
+                <div className="pt-4">
+                  <NegotiationScript
+                    script="I noticed the labor rate is 25% above the local average for structural body work. Can we align this with market rates?"
+                    className="border-none shadow-none !p-0 bg-transparent text-sm"
+                  />
                 </div>
               </div>
-              <ul className="space-y-4 mb-8 flex-grow">
-                <li className="flex items-center"><CheckCircle2 className="h-5 w-5 text-neutral-400 mr-3 shrink-0" /> 1 quote check per month</li>
-                <li className="flex items-center"><CheckCircle2 className="h-5 w-5 text-neutral-400 mr-3 shrink-0" /> Basic text script</li>
-              </ul>
-              <Link href="/analyze" className="w-full">
-                <Button variant="outline" className="w-full">Get Started Free</Button>
-              </Link>
-            </Card>
 
-            {/* Pro Tier */}
-            <Card padding="lg" className="flex flex-col border-neutral-900 shadow-soft-hover relative overflow-hidden">
-              <div className="absolute top-0 inset-x-0 h-1 bg-neutral-900"></div>
-              <div className="mb-8">
-                <h3 className="text-2xl font-semibold mb-2">Pro</h3>
-                <p className="text-neutral-500 mb-6">Unlimited negotiating power.</p>
-                <div className="flex items-baseline text-4xl font-extrabold text-neutral-900">
-                  €19<span className="text-lg font-medium text-neutral-500 ml-1">/mo</span>
+              <div className="relative flex flex-col items-center">
+                <AnalysisPreview
+                  title="Auto Repair Quote"
+                  originalPrice="3,200"
+                  fairPrice="2,450"
+                  lineItems={[
+                    { label: "Labor Hours", value: "+€420", type: "overcharge" },
+                    { label: "Parts Markup", value: "+€330", type: "overcharge" }
+                  ]}
+                  className="shadow-2xl !rounded-3xl"
+                />
+                <div className="absolute -bottom-8 -right-4 md:-right-8">
+                  <FairnessGauge score={42} className="shadow-2xl border-neutral-200 !p-6 scale-90" />
                 </div>
               </div>
-              <ul className="space-y-4 mb-8 flex-grow">
-                <li className="flex items-center"><CheckCircle2 className="h-5 w-5 text-neutral-900 mr-3 shrink-0" /> Unlimited quote checks</li>
-                <li className="flex items-center"><CheckCircle2 className="h-5 w-5 text-neutral-900 mr-3 shrink-0" /> Copilot AI negotiation chat</li>
-                <li className="flex items-center"><CheckCircle2 className="h-5 w-5 text-neutral-900 mr-3 shrink-0" /> Advanced psychology scripts</li>
-                <li className="flex items-center"><CheckCircle2 className="h-5 w-5 text-neutral-900 mr-3 shrink-0" /> Priority market data access</li>
-              </ul>
-              <Link href="/pricing" className="w-full">
-                <Button variant="solid" className="w-full bg-neutral-900 text-white">Upgrade to Pro</Button>
-              </Link>
-            </Card>
+            </div>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-white border-t border-neutral-200 py-12">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center space-x-2 mb-4 md:mb-0 text-neutral-600">
-            <ShieldCheck className="h-5 w-5" />
-            <span className="font-semibold">FairDealCheck</span>
+      <footer className="py-12 border-t border-neutral-100">
+        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-neutral-400">
+          <div className="flex items-center space-x-2">
+            <ShieldCheck className="h-5 w-5 opacity-40" />
+            <span className="font-semibold tracking-tight text-neutral-400 opacity-60">FairDeal</span>
           </div>
-          <div className="flex space-x-6 text-sm text-neutral-500">
-            <a href="#" className="hover:text-neutral-900 transition-colors">Privacy</a>
-            <a href="#" className="hover:text-neutral-900 transition-colors">Terms</a>
-            <a href="#" className="hover:text-neutral-900 transition-colors">Contact</a>
+          <div className="flex items-center space-x-8">
+            <Link href="/privacy" className="hover:text-navy transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-navy transition-colors">Terms</Link>
+            <Link href="/contact" className="hover:text-navy transition-colors">Contact</Link>
           </div>
+          <p>© 2026 FairDeal Technologies Inc.</p>
         </div>
       </footer>
     </div>

@@ -11,13 +11,28 @@ const clerk = clerkMiddleware(async (auth, req) => {
     }
 });
 
-export default function middleware(req: any, event: any) {
+export default async function middleware(req: any, event: any) {
+    const response = await clerk(req, event);
+
     const ua = req.headers.get('user-agent') || '';
-    // Bypass Clerk entirely for AI scrapers and search engine bots to avoid the dev-mode handshake redirect
-    if (ua.toLowerCase().includes('chatgpt') || ua.toLowerCase().includes('bot') || ua.toLowerCase().includes('spider') || ua.toLowerCase().includes('crawler')) {
-        return NextResponse.next();
+    const isBot = ua.toLowerCase().includes('chatgpt') || ua.toLowerCase().includes('bot') || ua.toLowerCase().includes('spider') || ua.toLowerCase().includes('crawler');
+
+    // If it's a bot and Clerk tries to do a dev-mode handshake redirect (307), suppress the redirect
+    // and just render the page normally so bots can see the public content.
+    if (isBot && response?.status === 307) {
+        // We still need to pass Clerk's auth headers downstream so auth() doesn't crash on the page
+        const headers = new Headers(req.headers);
+        headers.set('x-clerk-auth-reason', 'bot-bypass');
+        headers.set('x-clerk-auth-status', 'signed-out');
+
+        return NextResponse.next({
+            request: {
+                headers: headers
+            }
+        });
     }
-    return clerk(req, event);
+
+    return response || NextResponse.next();
 }
 
 export const config = {

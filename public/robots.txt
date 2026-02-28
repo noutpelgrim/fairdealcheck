@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Allow: /pricing
+Allow: /analyze
+Disallow: /dashboard
+Disallow: /api/
+
+User-agent: GPTBot
+Allow: /
+Allow: /pricing
+Allow: /analyze
+Disallow: /dashboard
+Disallow: /api/
+
+Sitemap: https://www.fairdealcheck.com/sitemap.xml
