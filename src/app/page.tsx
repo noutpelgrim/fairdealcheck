@@ -8,6 +8,7 @@ import { FairnessGauge } from "@/components/landing/FairnessGauge";
 import { AnalysisPreview } from "@/components/landing/AnalysisPreview";
 import { NegotiationScript } from "@/components/landing/NegotiationScript";
 import { TestimonialsCarousel } from "@/components/landing/TestimonialsCarousel";
+import { HowItWorksDeep } from "@/components/landing/HowItWorksDeep";
 
 export default function Home() {
   return (
@@ -93,6 +94,9 @@ export default function Home() {
         </section>
 
         
+        {/* How It Works Deep Dive */}
+        <HowItWorksDeep />
+
         {/* Trust & Credibility Section */}
         <section className="pb-24 px-6 max-w-5xl mx-auto">
           {/* Dark banner */}
