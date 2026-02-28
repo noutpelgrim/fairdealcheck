@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -91,6 +91,65 @@ export default function Home() {
           </div>
         </section>
 
+        
+        {/* Trust & Credibility Section */}
+        <section className="pb-24 px-6 max-w-5xl mx-auto">
+          {/* Dark banner */}
+          <div className="bg-navy rounded-[40px] p-10 md:p-16 text-white">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center space-x-2 text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                Built on real data
+              </div>
+              <h2 className="text-4xl font-bold tracking-tight mb-3">
+                Built on real data. Built for real people.
+              </h2>
+              <p className="text-white/60 max-w-lg mx-auto">
+                We started FairDealCheck because we were tired of the information gap between service providers and the people they serve. Knowing the facts is the most powerful negotiating tool you have.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              <div className="bg-white/5 rounded-3xl p-7 border border-white/10">
+                <div className="text-emerald-400 text-2xl mb-4">&#128202;</div>
+                <h3 className="font-bold text-lg mb-2">How We Source Data</h3>
+                <p className="text-white/60 text-sm leading-relaxed">
+                  Three independent layers: industry benchmarks updated quarterly, regional market averages by ZIP code, and anonymized community quote contributions &mdash; with your permission only.
+                </p>
+              </div>
+              <div className="bg-white/5 rounded-3xl p-7 border border-white/10">
+                <div className="text-emerald-400 text-2xl mb-4">&#128274;</div>
+                <h3 className="font-bold text-lg mb-2">Your Privacy, Fully Protected</h3>
+                <p className="text-white/60 text-sm leading-relaxed">
+                  We do not sell your data. We do not share your quotes. No personal information is ever stored. Your quote is used to generate your analysis &mdash; then it is gone.
+                </p>
+              </div>
+              <div className="bg-white/5 rounded-3xl p-7 border border-white/10">
+                <div className="text-emerald-400 text-2xl mb-4">&#128208;</div>
+                <h3 className="font-bold text-lg mb-2">How the Score Works</h3>
+                <p className="text-white/60 text-sm leading-relaxed">
+                  Your 0&ndash;100 Fairness Score is calculated from price deviation, labor rate comparison, and parts markup analysis. A score below 50 is statistically overpriced.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm">
+              <div className="flex items-center gap-3">
+                <span className="inline-block w-3 h-3 rounded-full bg-emerald-400"></span>
+                <span className="text-white/70"><strong className="text-white">70&ndash;100</strong> &nbsp;Fair or competitive pricing</span>
+              </div>
+              <div className="hidden sm:block w-px h-4 bg-white/20"></div>
+              <div className="flex items-center gap-3">
+                <span className="inline-block w-3 h-3 rounded-full bg-amber-400"></span>
+                <span className="text-white/70"><strong className="text-white">50&ndash;69</strong> &nbsp;Slightly elevated &mdash; room to negotiate</span>
+              </div>
+              <div className="hidden sm:block w-px h-4 bg-white/20"></div>
+              <div className="flex items-center gap-3">
+                <span className="inline-block w-3 h-3 rounded-full bg-red-400"></span>
+                <span className="text-white/70"><strong className="text-white">0&ndash;49</strong> &nbsp;Statistically overpriced</span>
+              </div>
+            </div>
+          </div>
+        </section>
         {/* Product Preview Section */}
         <section className="pb-32 px-6 max-w-5xl mx-auto">
           <div className="relative bg-neutral-50 rounded-[40px] p-8 md:p-16 border border-neutral-100 overflow-hidden">
