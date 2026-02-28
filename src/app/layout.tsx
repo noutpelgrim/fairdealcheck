@@ -14,13 +14,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FairDealCheck | Stop Wondering If You're Being Ripped Off",
-  description: "Get a Fairness Score on any service quote and receive AI-generated scripts to negotiate like a pro. Stop overpaying and start knowing.",
-  keywords: ["fairness score", "negotiation scripts", "service quotes", "budget protection", "financial intelligence"],
+  title: "FairDealCheck — Know If Your Service Quote Is Fair",
+  description: "Upload any service quote and get an instant Fairness Score, market rate comparison, and negotiation scripts. Stop overpaying for repairs and contractor work.",
+  keywords: [
+    "check if a quote is fair",
+    "overpriced contractor quote",
+    "fair price for auto repair",
+    "service quote comparison tool",
+    "how to negotiate a contractor price",
+    "is my mechanic overcharging me",
+    "home repair cost calculator",
+    "contractor quote too high",
+    "how to dispute a service quote",
+    "negotiate repair bill scripts",
+  ],
   authors: [{ name: "FairDealCheck Team" }],
   openGraph: {
-    title: "FairDealCheck | Stop Wondering If You're Being Ripped Off",
-    description: "Analyze any quote and get an instant fairness score.",
+    title: "FairDealCheck — Know If Your Service Quote Is Fair",
+    description: "Upload any quote. Get an instant Fairness Score and word-for-word scripts to negotiate a lower price.",
     url: "https://www.fairdealcheck.com",
     siteName: "FairDealCheck",
     locale: "en_US",
@@ -28,8 +39,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "FairDealCheck | Stop Wondering If You're Being Ripped Off",
-    description: "Analyze any quote and get an instant fairness score.",
+    title: "FairDealCheck — Know If Your Service Quote Is Fair",
+    description: "Upload any quote. Get an instant Fairness Score and word-for-word scripts to negotiate a lower price.",
   },
   robots: {
     index: true,
