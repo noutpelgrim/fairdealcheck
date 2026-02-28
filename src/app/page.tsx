@@ -20,9 +20,14 @@ export default function Home() {
             <ShieldCheck className="h-6 w-6 text-navy" />
             <span className="font-bold text-lg tracking-tight text-navy">FairDeal</span>
           </div>
-          <Link href="/analyze">
-            <span className="text-sm font-medium text-navy hover:text-emerald-600 transition-colors">Analyze Now</span>
-          </Link>
+          <div className="flex items-center gap-6">
+            <Link href="/blog">
+              <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">Blog</span>
+            </Link>
+            <Link href="/analyze">
+              <span className="text-sm font-medium text-navy hover:text-emerald-600 transition-colors">Analyze Now</span>
+            </Link>
+          </div>
         </div>
       </nav>
 
@@ -93,7 +98,7 @@ export default function Home() {
           </div>
         </section>
 
-        
+
         {/* How It Works Deep Dive */}
         <HowItWorksDeep />
 
@@ -155,7 +160,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-                {/* Testimonials Carousel */}
+        {/* Testimonials Carousel */}
         <TestimonialsCarousel />
         {/* Product Preview Section */}
         <section className="pb-32 px-6 max-w-5xl mx-auto">
