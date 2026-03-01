@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/Button";
 import { FairnessGauge } from "@/components/landing/FairnessGauge";
 import { AnalysisPreview } from "@/components/landing/AnalysisPreview";
 import { NegotiationScript } from "@/components/landing/NegotiationScript";
-import { TestimonialsCarousel } from "@/components/landing/TestimonialsCarousel";
 import { HowItWorksDeep } from "@/components/landing/HowItWorksDeep";
 import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
 import { DemoVideo } from "@/components/landing/DemoVideo";
@@ -205,8 +204,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-        {/* Testimonials Carousel */}
-        <TestimonialsCarousel />
         {/* Product Preview Section */}
         <section className="pb-32 px-6 max-w-5xl mx-auto">
           <div className="relative bg-neutral-50 rounded-[40px] p-8 md:p-16 border border-neutral-100 overflow-hidden">

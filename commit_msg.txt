@@ -1,1 +1,0 @@
-feat: add testimonials section with 7 AI avatars, masonry layout, savings chips
