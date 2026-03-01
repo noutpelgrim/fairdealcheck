@@ -1,6 +1,7 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import { ShieldCheck, ArrowRight } from "lucide-react";
+import { Navbar } from "@/components/Navbar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -282,7 +283,7 @@ export default function ExamplesPage() {
                 <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-neutral-400">
                     <Link href="/" className="flex items-center space-x-2">
                         <ShieldCheck className="h-5 w-5 opacity-40" />
-                        <span className="font-semibold tracking-tight opacity-60">FairDeal</span>
+                        <span className="font-semibold tracking-tight opacity-60">FairDealCheck</span>
                     </Link>
                     <div className="flex items-center space-x-8">
                         <Link href="/examples" className="hover:text-navy transition-colors">Examples</Link>

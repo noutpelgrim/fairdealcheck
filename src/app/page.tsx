@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck } from "lucide-react";
+import { Navbar } from "@/components/Navbar";
 import { Button } from "@/components/ui/Button";
 import { FairnessGauge } from "@/components/landing/FairnessGauge";
 import { AnalysisPreview } from "@/components/landing/AnalysisPreview";
@@ -14,25 +15,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100">
-        <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <ShieldCheck className="h-6 w-6 text-navy" />
-            <span className="font-bold text-lg tracking-tight text-navy">FairDeal</span>
-          </div>
-          <div className="flex items-center gap-6">
-            <Link href="/examples">
-              <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">Examples</span>
-            </Link>
-            <Link href="/blog">
-              <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">Blog</span>
-            </Link>
-            <Link href="/analyze">
-              <span className="text-sm font-medium text-navy hover:text-emerald-600 transition-colors">Analyze Now</span>
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       <main>
         {/* Hero Section */}
