@@ -1,9 +1,9 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
+﻿import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
 
 import { NextResponse } from 'next/server';
 
 const isProtectedRoute = createRouteMatcher(['/dashboard(.*)', '/copilot(.*)'])
-const isPublicRoute = createRouteMatcher(['/', '/pricing', '/analyze(.*)', '/blog(.*)', '/api/webhook/paddle', '/sign-in(.*)', '/sign-up(.*)'])
+const isPublicRoute = createRouteMatcher(['/', '/pricing', '/analyze(.*)', '/blog(.*)', '/examples(.*)', '/api/webhook/paddle', '/sign-in(.*)', '/sign-up(.*)'])
 
 const clerk = clerkMiddleware(async (auth, req) => {
     if (!isPublicRoute(req) && isProtectedRoute(req)) {

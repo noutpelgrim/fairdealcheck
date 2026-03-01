@@ -21,6 +21,9 @@ export default function Home() {
             <span className="font-bold text-lg tracking-tight text-navy">FairDeal</span>
           </div>
           <div className="flex items-center gap-6">
+            <Link href="/examples">
+              <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">Examples</span>
+            </Link>
             <Link href="/blog">
               <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">Blog</span>
             </Link>
