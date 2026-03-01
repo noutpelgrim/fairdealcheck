@@ -99,9 +99,9 @@ export function FAQSection() {
                     <button
                         key={cat}
                         onClick={() => { setActiveCategory(cat); setOpenIndex(null); }}
-                        className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 border ${activeCategory === cat
-                                ? "bg-navy text-white border-navy shadow-md"
-                                : "bg-white text-navy/50 border-neutral-200 hover:border-navy/30 hover:text-navy"
+                        className={`px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 border min-h-[44px] flex items-center justify-center ${activeCategory === cat
+                            ? "bg-navy text-white border-navy shadow-md"
+                            : "bg-white text-navy/50 border-neutral-200 hover:border-navy/30 hover:text-navy"
                             }`}
                     >
                         {cat}
@@ -117,8 +117,8 @@ export function FAQSection() {
                         <div
                             key={idx}
                             className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
-                                    ? "border-navy/10 shadow-sm bg-white"
-                                    : "border-neutral-100 bg-neutral-50/60 hover:bg-white hover:border-neutral-200"
+                                ? "border-navy/10 shadow-sm bg-white"
+                                : "border-neutral-100 bg-neutral-50/60 hover:bg-white hover:border-neutral-200"
                                 }`}
                         >
                             <button

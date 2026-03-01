@@ -34,30 +34,30 @@ export function Navbar() {
                     </span>
                 </Link>
 
-                {/* Nav links */}
-                <div className="flex items-center gap-6">
-                    <Link href="/examples">
+                {/* Nav links - Hidden on small screens, flex on large */}
+                <div className="flex items-center gap-4 sm:gap-6">
+                    <Link href="/examples" className="hidden md:block">
                         <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">
                             Examples
                         </span>
                     </Link>
-                    <Link href="/pricing">
+                    <Link href="/pricing" className="hidden sm:block">
                         <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">
                             Pricing
                         </span>
                     </Link>
-                    <Link href="/blog">
+                    <Link href="/blog" className="hidden lg:block">
                         <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">
                             Blog
                         </span>
                     </Link>
-                    <Link href="/methodology">
+                    <Link href="/methodology" className="hidden lg:block">
                         <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">
                             Methodology
                         </span>
                     </Link>
-                    <Link href="/analyze">
-                        <span className="text-sm font-medium text-navy hover:text-emerald-600 transition-colors">
+                    <Link href="/analyze" className="sm:ml-2">
+                        <span className="text-sm font-bold text-navy hover:text-emerald-600 transition-colors bg-white sm:bg-transparent border border-neutral-100 sm:border-none px-3 py-1.5 rounded-full sm:p-0">
                             Analyze Now
                         </span>
                     </Link>

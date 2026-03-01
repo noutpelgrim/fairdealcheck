@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
@@ -16,6 +16,17 @@ import { SavingsCounter } from "@/components/landing/SavingsCounter";
 import { FAQSection } from "@/components/landing/FAQSection";
 
 export default function Home() {
+  const [showStickyCTA, setShowStickyCTA] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show sticky CTA after scrolling past hero (approx 400px)
+      setShowStickyCTA(window.scrollY > 400);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -23,15 +34,15 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-20 px-6 max-w-5xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-navy mb-6 leading-[1.1]">
-            Stop wondering if you're <br /> getting ripped off.
+        <section className="pt-20 sm:pt-32 pb-16 sm:pb-20 px-6 max-w-5xl mx-auto text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-navy mb-6 leading-[1.1]">
+            Stop wondering if you&apos;re getting ripped off.
           </h1>
-          <p className="text-lg md:text-xl text-navy/60 max-w-xl mx-auto mb-10 leading-relaxed">
-            Upload any service quote and get an instant Fairness Score, real market rates, and word-for-word scripts to negotiate a lower price — in under 60 seconds.
+          <p className="text-base sm:text-lg md:text-xl text-navy/60 max-w-xl mx-auto mb-10 leading-relaxed">
+            Know if your quote is fair &mdash; in 60 seconds. Upload any service quote, get a Fairness Score, and the exact words to negotiate a lower price.
           </p>
           <Link href="/analyze">
-            <Button size="lg" className="h-14 px-8 rounded-full bg-navy text-white hover:bg-navy-light shadow-xl shadow-navy/10 transition-all font-semibold">
+            <Button size="lg" className="h-14 w-full sm:w-auto px-8 rounded-full bg-navy text-white hover:bg-navy-light shadow-xl shadow-navy/10 transition-all font-semibold">
               Check My Quote — It&apos;s Free
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
@@ -73,7 +84,7 @@ export default function Home() {
         <AuthoritySection />
 
         {/* How It Works Section */}
-        <section className="pb-24 px-6 max-w-5xl mx-auto">
+        <section className="pb-16 sm:pb-24 px-6 max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
               How It Works
@@ -126,11 +137,24 @@ export default function Home() {
         {/* How It Works Deep Dive */}
         <HowItWorksDeep />
 
+        {/* Mid-page CTA to capture intent */}
+        <div className="py-20 px-6 text-center max-w-xl mx-auto">
+          <Link href="/analyze">
+            <Button className="h-14 w-full sm:w-auto px-10 rounded-full bg-navy text-white hover:bg-navy-light shadow-xl shadow-navy/10 transition-all font-bold text-lg">
+              Check My Quote &mdash; It&apos;s Free
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </Link>
+          <p className="text-sm text-navy/40 mt-4 font-medium italic">
+            First analysis is 100% free. No credit card required.
+          </p>
+        </div>
+
         {/* Testimonials */}
         <TestimonialsSection />
 
         {/* Trust & Credibility Section */}
-        <section className="pb-24 px-6 max-w-5xl mx-auto">
+        <section className="pb-16 sm:pb-24 px-6 max-w-5xl mx-auto">
           {/* Dark banner */}
           <div className="bg-navy rounded-[40px] p-10 md:p-16 text-white">
             <div className="text-center mb-12">
@@ -206,7 +230,7 @@ export default function Home() {
           </div>
         </section>
         {/* Product Preview Section */}
-        <section className="pb-32 px-6 max-w-5xl mx-auto">
+        <section className="pb-16 sm:pb-32 px-6 max-w-5xl mx-auto">
           <div className="relative bg-neutral-50 rounded-[40px] p-8 md:p-16 border border-neutral-100 overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
@@ -252,7 +276,16 @@ export default function Home() {
 
       </main>
 
-      <footer className="py-12 border-t border-neutral-100">
+      {/* Sticky mobile CTA */}
+      <div className={`fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white/95 backdrop-blur border-t border-neutral-100 px-4 py-3 shadow-2xl transition-all duration-300 transform ${showStickyCTA ? "translate-y-0" : "translate-y-full"}`}>
+        <Link href="/analyze">
+          <Button className="w-full h-12 rounded-full bg-navy text-white font-bold text-sm shadow-lg">
+            Check My Quote — It&apos;s Free →
+          </Button>
+        </Link>
+      </div>
+
+      <footer className="py-12 border-t border-neutral-100 pb-24 sm:pb-12">
         <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-neutral-400">
           <div className="flex items-center space-x-2">
             <ShieldCheck className="h-5 w-5 opacity-40" />

@@ -78,9 +78,18 @@ export function DemoVideo() {
     setPlaying((p) => !p);
   }
 
-  function seek(e: React.MouseEvent<HTMLDivElement>) {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const ratio = (e.clientX - rect.left) / rect.width;
+  function seek(e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) {
+    const target = e.currentTarget;
+    const rect = target.getBoundingClientRect();
+    let clientX: number;
+
+    if ('touches' in e) {
+      clientX = e.touches[0].clientX;
+    } else {
+      clientX = e.clientX;
+    }
+
+    const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
     const newT = ratio * TOTAL;
     pausedAtRef.current = newT;
     startTimeRef.current = null;
@@ -140,8 +149,8 @@ export function DemoVideo() {
               <div
                 key={i}
                 className={`h-1.5 rounded-full transition-all duration-500 ${i === activeScene ? "w-6 bg-emerald-500" :
-                    i < activeScene ? "w-1.5 bg-emerald-300/60" :
-                      "w-1.5 bg-neutral-300/50"}`}
+                  i < activeScene ? "w-1.5 bg-emerald-300/60" :
+                    "w-1.5 bg-neutral-300/50"}`}
               />
             ))}
           </div>
@@ -165,8 +174,8 @@ export function DemoVideo() {
           </div>
 
           {/* ── SCENE 2: UPLOAD ── */}
-          <div className={`absolute inset-0 flex flex-col items-center justify-center gap-3 transition-opacity duration-500 ${is(1) ? "opacity-100" : "opacity-0"}`}>
-            <div className="bg-white border border-neutral-200 rounded-2xl shadow p-5 w-[460px]">
+          <div className={`absolute inset-0 flex flex-col items-center justify-center p-4 transition-opacity duration-500 ${is(1) ? "opacity-100" : "opacity-0"}`}>
+            <div className="bg-white border border-neutral-200 rounded-2xl shadow p-5 w-full max-w-[460px]">
               <div className="flex items-center gap-2 mb-3">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-400" /><span className="w-2.5 h-2.5 rounded-full bg-yellow-400" /><span className="w-2.5 h-2.5 rounded-full bg-green-400" />
                 <span className="flex-1 bg-neutral-100 rounded text-[10px] text-neutral-400 px-2 py-1 ml-1">fairdealcheck.com/analyze</span>
@@ -207,8 +216,8 @@ export function DemoVideo() {
           </div>
 
           {/* ── SCENE 4: BREAKDOWN ── */}
-          <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${is(3) ? "opacity-100" : "opacity-0"}`}>
-            <div className="bg-white border border-neutral-200 rounded-2xl shadow-lg p-5 w-[520px]">
+          <div className={`absolute inset-0 flex items-center justify-center p-4 transition-opacity duration-500 ${is(3) ? "opacity-100" : "opacity-0"}`}>
+            <div className="bg-white border border-neutral-200 rounded-2xl shadow-lg p-5 w-full max-w-[520px]">
               <p className="text-[9px] font-bold tracking-widest uppercase text-neutral-400 mb-3 pb-2 border-b border-neutral-100">Every Line Item, Audited</p>
               {[
                 { label: "Brake Pads & Rotors", charged: "$340", fair: "$190–$220", tag: "+$120 Over", over: true, dl: "delay-[200ms]" },
@@ -233,8 +242,8 @@ export function DemoVideo() {
           </div>
 
           {/* ── SCENE 5: SCRIPT ── */}
-          <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${is(4) ? "opacity-100" : "opacity-0"}`}>
-            <div className="bg-white border border-neutral-200 rounded-2xl shadow-lg p-6 w-[500px]">
+          <div className={`absolute inset-0 flex items-center justify-center p-4 transition-opacity duration-500 ${is(4) ? "opacity-100" : "opacity-0"}`}>
+            <div className="bg-white border border-neutral-200 rounded-2xl shadow-lg p-6 w-full max-w-[500px]">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-8 h-8 bg-emerald-50 border border-emerald-100 rounded-lg flex items-center justify-center text-sm">💬</div>
                 <p className="font-bold text-sm text-navy">Then we give you <span className="text-emerald-600">the exact words.</span></p>
@@ -299,19 +308,23 @@ export function DemoVideo() {
 
         {/* ── VIDEO CONTROLS BAR ── */}
         <div className="bg-[#1c1f26] px-4 py-3">
-          {/* Scrubber */}
+          {/* Scrubber - Large hit area for mobile */}
           <div
-            className="w-full h-1.5 bg-white/10 rounded-full mb-3 cursor-pointer relative group"
+            className="w-full h-6 flex items-center cursor-pointer relative group"
             onClick={seek}
+            onTouchStart={(e) => { e.preventDefault(); seek(e); }}
+            onTouchMove={(e) => { e.preventDefault(); seek(e); }}
           >
-            {/* Buffered track */}
-            <div className="absolute inset-y-0 left-0 bg-white/20 rounded-full" style={{ width: "100%" }} />
-            {/* Played track */}
-            <div className="absolute inset-y-0 left-0 bg-emerald-500 rounded-full transition-none" style={{ width: `${progress}%` }} />
+            <div className="w-full h-1.5 bg-white/10 rounded-full relative overflow-hidden">
+              {/* Buffered track */}
+              <div className="absolute inset-y-0 left-0 bg-white/20 rounded-full" style={{ width: "100%" }} />
+              {/* Played track */}
+              <div className="absolute inset-y-0 left-0 bg-emerald-500 rounded-full transition-none" style={{ width: `${progress}%` }} />
+            </div>
             {/* Scrubber thumb */}
             <div
-              className="absolute top-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-white rounded-full shadow opacity-0 group-hover:opacity-100 transition-opacity"
-              style={{ left: `calc(${progress}% - 7px)` }}
+              className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow opacity-0 sm:group-hover:opacity-100 transition-opacity"
+              style={{ left: `calc(${progress}% - 8px)` }}
             />
           </div>
 
@@ -364,10 +377,10 @@ export function DemoVideo() {
         </div>
       </div>
 
-      {/* Scene step indicators */}
-      <div className="flex justify-between mt-2.5 px-1">
+      {/* Scene step indicators - Grid on mobile, flex on desktop */}
+      <div className="grid grid-cols-3 sm:flex sm:justify-between items-center gap-y-2 gap-x-1 mt-3 px-1">
         {SCENES.map((s, i) => (
-          <span key={s.id} className={`text-[10px] font-semibold transition-colors duration-300 ${i === activeScene ? "text-emerald-600" : "text-neutral-300"}`}>
+          <span key={s.id} className={`text-[10px] font-semibold transition-colors duration-300 text-center sm:text-left ${i === activeScene ? "text-emerald-600" : "text-neutral-300"}`}>
             {i + 1}. {s.label}
           </span>
         ))}
