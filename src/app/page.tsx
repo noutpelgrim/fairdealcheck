@@ -24,7 +24,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="pt-32 pb-20 px-6 max-w-5xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-navy mb-6 leading-[1.1]">
-            Stop wondering if you’re <br /> getting ripped off.
+            Stop wondering if you're <br /> getting ripped off.
           </h1>
           <p className="text-lg md:text-xl text-navy/60 max-w-xl mx-auto mb-10 leading-relaxed">
             Upload any service quote and get an instant Fairness Score, real market rates, and word-for-word scripts to negotiate a lower price — in under 60 seconds.
@@ -36,8 +36,13 @@ export default function Home() {
             </Button>
           </Link>
 
+          {/* Demo — directly under CTA for above-the-fold placement */}
+          <div className="mt-10 text-left">
+            <DemoVideo />
+          </div>
+
           {/* Security badges */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             <div className="flex items-center gap-1.5 text-navy/40 text-xs">
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
               256-bit encrypted
@@ -57,13 +62,11 @@ export default function Home() {
           </div>
 
           {/* Savings counter */}
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-4">
             <SavingsCounter />
           </div>
         </section>
 
-        {/* Demo Video Section */}
-        <DemoVideo />
 
         {/* Authority / Pricing Standard Section */}
         <AuthoritySection />

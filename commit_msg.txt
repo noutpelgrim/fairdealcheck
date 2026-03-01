@@ -1,0 +1,1 @@
+feat: CRO video optimization - demo above fold, rewritten scene copy, trust signals
