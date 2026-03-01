@@ -46,6 +46,26 @@ export default function Home() {
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </Link>
+
+          {/* Security badges */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <div className="flex items-center gap-1.5 text-navy/40 text-xs">
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+              256-bit encrypted
+            </div>
+            <div className="flex items-center gap-1.5 text-navy/40 text-xs">
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /></svg>
+              Never shared
+            </div>
+            <div className="flex items-center gap-1.5 text-navy/40 text-xs">
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+              Auto-deleted after analysis
+            </div>
+            <div className="flex items-center gap-1.5 text-navy/40 text-xs">
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              GDPR compliant
+            </div>
+          </div>
         </section>
 
         {/* How It Works Section */}
