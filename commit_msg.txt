@@ -1,1 +1,1 @@
-feat: CRO video optimization - demo above fold, rewritten scene copy, trust signals
+feat: shorter demo (36s) and video player chrome with controls and play overlay
