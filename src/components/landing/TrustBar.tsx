@@ -4,16 +4,17 @@ import React from "react";
 
 export function TrustBar() {
     const points = [
-        { label: "Data Points Verified", value: "850k+" },
+        { label: "Verified Price Records", value: "84,000+" },
         { label: "Regional Pricing Match", value: "99.4%" },
-        { label: "Avg. Dispute Success", value: "82.5%" },
+        { label: "Avg. Negotiation Success", value: "82.5%" },
         { label: "Market Indices Tracked", value: "14,800" },
+        { label: "Overcharges Identified", value: "$4.2M+" },
     ];
 
     return (
         <div className="w-full border-y border-neutral-100 bg-white/50 backdrop-blur-sm py-16">
             <div className="max-w-6xl mx-auto px-4 lg:px-8">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-12 md:gap-6">
                     {points.map((p, i) => (
                         <div key={i} className="text-center md:text-left group transition-all duration-300">
                             <div className="relative inline-block md:block">

@@ -41,9 +41,19 @@ export function Navbar() {
                             Examples
                         </span>
                     </Link>
+                    <Link href="/pricing">
+                        <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">
+                            Pricing
+                        </span>
+                    </Link>
                     <Link href="/blog">
                         <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">
                             Blog
+                        </span>
+                    </Link>
+                    <Link href="/methodology">
+                        <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">
+                            Methodology
                         </span>
                     </Link>
                     <Link href="/analyze">

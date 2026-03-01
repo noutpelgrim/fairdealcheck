@@ -10,6 +10,9 @@ import { AnalysisPreview } from "@/components/landing/AnalysisPreview";
 import { NegotiationScript } from "@/components/landing/NegotiationScript";
 import { TestimonialsCarousel } from "@/components/landing/TestimonialsCarousel";
 import { HowItWorksDeep } from "@/components/landing/HowItWorksDeep";
+import { DemoVideo } from "@/components/landing/DemoVideo";
+import { AuthoritySection } from "@/components/landing/AuthoritySection";
+import { SavingsCounter } from "@/components/landing/SavingsCounter";
 
 export default function Home() {
   return (
@@ -52,7 +55,18 @@ export default function Home() {
               GDPR compliant
             </div>
           </div>
+
+          {/* Savings counter */}
+          <div className="flex justify-center">
+            <SavingsCounter />
+          </div>
         </section>
+
+        {/* Demo Video Section */}
+        <DemoVideo />
+
+        {/* Authority / Pricing Standard Section */}
+        <AuthoritySection />
 
         {/* How It Works Section */}
         <section className="pb-24 px-6 max-w-5xl mx-auto">
@@ -122,6 +136,24 @@ export default function Home() {
               <p className="text-white/60 max-w-xl mx-auto">
                 Every Fairness Score is calculated using real regional price data &mdash; sourced from verified industry databases, labor rate guides, and aggregated market transactions, updated monthly for your ZIP code. We compare your quote to what people in <em>your area</em> are actually paying, right now.
               </p>
+            </div>
+
+            {/* Independence Disclaimer */}
+            <div className="bg-white/5 border border-white/10 rounded-3xl px-8 py-6 mb-10 flex flex-col sm:flex-row items-start gap-5">
+              <div className="shrink-0 w-10 h-10 rounded-xl bg-emerald-400/20 flex items-center justify-center text-xl">
+                ⚖️
+              </div>
+              <div>
+                <h3 className="font-bold text-white mb-2">Our Independence Guarantee</h3>
+                <p className="text-white/60 text-sm leading-relaxed">
+                  FairDealCheck is not affiliated with any service provider network, parts supplier, or home services marketplace.
+                  We have no financial incentive to score any quote higher or lower than the data supports.
+                  We make money only when you subscribe — not when you get a quote.
+                  <a href="/methodology" className="ml-2 text-emerald-400 font-semibold hover:text-emerald-300 transition-colors underline underline-offset-2">
+                    Read our full methodology →
+                  </a>
+                </p>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
