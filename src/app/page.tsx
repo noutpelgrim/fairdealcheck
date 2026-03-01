@@ -13,6 +13,7 @@ import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
 import { DemoVideo } from "@/components/landing/DemoVideo";
 import { AuthoritySection } from "@/components/landing/AuthoritySection";
 import { SavingsCounter } from "@/components/landing/SavingsCounter";
+import { FAQSection } from "@/components/landing/FAQSection";
 
 export default function Home() {
   return (
@@ -245,6 +246,10 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <FAQSection />
+
       </main>
 
       <footer className="py-12 border-t border-neutral-100">
