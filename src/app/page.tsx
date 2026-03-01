@@ -10,6 +10,7 @@ import { AnalysisPreview } from "@/components/landing/AnalysisPreview";
 import { NegotiationScript } from "@/components/landing/NegotiationScript";
 import { TestimonialsCarousel } from "@/components/landing/TestimonialsCarousel";
 import { HowItWorksDeep } from "@/components/landing/HowItWorksDeep";
+import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
 import { DemoVideo } from "@/components/landing/DemoVideo";
 import { AuthoritySection } from "@/components/landing/AuthoritySection";
 import { SavingsCounter } from "@/components/landing/SavingsCounter";
@@ -124,6 +125,9 @@ export default function Home() {
 
         {/* How It Works Deep Dive */}
         <HowItWorksDeep />
+
+        {/* Testimonials */}
+        <TestimonialsSection />
 
         {/* Trust & Credibility Section */}
         <section className="pb-24 px-6 max-w-5xl mx-auto">
