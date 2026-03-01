@@ -17,6 +17,14 @@ interface AnalysisPreviewProps {
     negotiationScript?: string;
     currency?: string;
     className?: string;
+    showScript?: boolean;
+    score?: number;
+}
+
+function getScoreStatus(s: number) {
+    if (s >= 70) return { label: "Fair", color: "text-emerald-600", bg: "bg-emerald-50", border: "border-emerald-200", dot: "bg-emerald-500" };
+    if (s >= 50) return { label: "Caution", color: "text-amber-600", bg: "bg-amber-50", border: "border-amber-200", dot: "bg-amber-500" };
+    return { label: "Overpriced", color: "text-rose-600", bg: "bg-rose-50", border: "border-rose-200", dot: "bg-rose-500" };
 }
 
 export function AnalysisPreview({
@@ -29,7 +37,9 @@ export function AnalysisPreview({
     fairPrice = "1,850.00",
     negotiationScript = "I've cross-referenced the labor rates for this repair in our area, and $180/hr is 30% above market average...",
     currency = "$",
-    className = ""
+    className = "",
+    showScript = true,
+    score
 }: AnalysisPreviewProps) {
     return (
         <div className={`w-full max-w-2xl mx-auto glass rounded-[40px] overflow-hidden shadow-premium transition-all duration-500 hover:shadow-premium-hover hover:-translate-y-1 group/analysis ${className}`}>
@@ -46,7 +56,7 @@ export function AnalysisPreview({
             </div>
 
             <div className="p-10">
-                <div className="flex flex-col lg:flex-row gap-10 items-start">
+                <div className={`flex flex-col gap-10 items-start ${showScript ? "lg:flex-row" : ""}`}>
                     {/* Main Card */}
                     <div className="flex-1 space-y-8 w-full">
                         <div>
@@ -95,28 +105,46 @@ export function AnalysisPreview({
                                 <p className="text-4xl font-black text-emerald-600 tracking-tighter">{currency}{fairPrice}</p>
                             </div>
                         </div>
+
+                        {score !== undefined && (() => {
+                            const st = getScoreStatus(score);
+                            return (
+                                <div className={`mt-6 flex items-center justify-between px-5 py-3 rounded-2xl border ${st.bg} ${st.border}`}>
+                                    <div className="flex items-center space-x-3">
+                                        <div className={`w-2 h-2 rounded-full ${st.dot} animate-pulse`} />
+                                        <span className={`text-[10px] font-black uppercase tracking-widest ${st.color}`}>Fairness Score</span>
+                                    </div>
+                                    <span className={`text-2xl font-black tracking-tighter ${st.color}`}>
+                                        {score}<span className="text-xs font-bold opacity-50">/100</span>
+                                        <span className={`ml-2 text-[10px] font-black uppercase tracking-wider opacity-70`}>— {st.label}</span>
+                                    </span>
+                                </div>
+                            );
+                        })()}
                     </div>
 
                     {/* Script Section */}
-                    <div className="w-full lg:w-80 space-y-6">
-                        <div className="bg-navy p-8 rounded-[40px] shadow-2xl shadow-navy/20 relative overflow-hidden group/script">
-                            {/* Background accent */}
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-3xl rounded-full"></div>
+                    {showScript && (
+                        <div className="w-full lg:w-80 space-y-6">
+                            <div className="bg-navy p-8 rounded-[40px] shadow-2xl shadow-navy/20 relative overflow-hidden group/script">
+                                {/* Background accent */}
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-3xl rounded-full"></div>
 
-                            <div className="relative z-10">
-                                <div className="flex items-center space-x-3 mb-6">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                                    <h4 className="text-[10px] font-black text-white/40 uppercase tracking-widest">AI Negotiation Script</h4>
+                                <div className="relative z-10">
+                                    <div className="flex items-center space-x-3 mb-6">
+                                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                                        <h4 className="text-[10px] font-black text-white/40 uppercase tracking-widest">AI Negotiation Script</h4>
+                                    </div>
+                                    <p className="text-sm text-white/80 leading-relaxed italic font-medium mb-10">
+                                        "{negotiationScript}"
+                                    </p>
+                                    <button className="w-full py-4 bg-white text-navy text-[11px] font-black uppercase tracking-[0.2em] rounded-2xl hover:bg-neutral-100 transition-all shadow-xl shadow-black/10 active:scale-95">
+                                        Copy Script
+                                    </button>
                                 </div>
-                                <p className="text-sm text-white/80 leading-relaxed italic font-medium mb-10">
-                                    "{negotiationScript}"
-                                </p>
-                                <button className="w-full py-4 bg-white text-navy text-[11px] font-black uppercase tracking-[0.2em] rounded-2xl hover:bg-neutral-100 transition-all shadow-xl shadow-black/10 active:scale-95">
-                                    Copy Script
-                                </button>
                             </div>
                         </div>
-                    </div>
+                    )}
                 </div>
             </div>
         </div>

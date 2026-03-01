@@ -228,20 +228,19 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="relative flex flex-col items-center">
+              <div className="flex flex-col items-stretch">
                 <AnalysisPreview
                   title="Auto Repair Quote"
                   originalPrice="3,200"
                   fairPrice="2,450"
                   lineItems={[
-                    { label: "Labor Hours", value: "+€420", type: "overcharge" },
-                    { label: "Parts Markup", value: "+€330", type: "overcharge" }
+                    { label: "Labor Hours", value: "+$420", type: "overcharge" },
+                    { label: "Parts Markup", value: "+$330", type: "overcharge" }
                   ]}
+                  showScript={false}
+                  score={42}
                   className="shadow-2xl !rounded-3xl"
                 />
-                <div className="absolute -bottom-8 -right-4 md:-right-8">
-                  <FairnessGauge score={42} className="shadow-2xl border-neutral-200 !p-6 scale-90" />
-                </div>
               </div>
             </div>
           </div>
