@@ -6,6 +6,7 @@ import { CheckCircle2, XCircle, ArrowRight, Flame } from "lucide-react";
 import { useUser } from "@clerk/nextjs";
 import { initializePaddle, Paddle } from "@paddle/paddle-js";
 import { Navbar } from "@/components/Navbar";
+import { RecurringValueSection } from "@/components/pricing/RecurringValueSection";
 
 const tiers = [
     {
@@ -44,15 +45,14 @@ const tiers = [
         ctaHref: null, // triggers paddle
         features: [
             { label: "Quote analyses per month", value: "Unlimited" },
-            { label: "Fairness Score (0–100)", value: true },
-            { label: "Line-item breakdown", value: "Full" },
-            { label: "Regional market comparison", value: true },
-            { label: "Parts markup analysis", value: true },
-            { label: "Labor rate benchmarking", value: true },
-            { label: "Negotiation script", value: "Tailored" },
-            { label: "Negotiation template library", value: "15+ templates" },
-            { label: "PDF export", value: true },
-            { label: "Priority support", value: "Email" },
+            { label: "Digital Garage Asset Ledger", value: true },
+            { label: "Live Market Rate Alerts", value: true },
+            { label: "Subscription Bill Auditing", value: true },
+            { label: "Verified Provider Network", value: true },
+            { label: "Full Line-Item Breakdown", value: true },
+            { label: "Tailored Negotiation Scripts", value: true },
+            { label: "PDF Export for Providers", value: true },
+            { label: "Priority Support", value: "Email" },
         ],
     },
     {
@@ -67,18 +67,13 @@ const tiers = [
         cta: "Get Business",
         ctaHref: "mailto:hello@fairdealcheck.com?subject=Business Plan",
         features: [
-            { label: "Quote analyses per month", value: "Unlimited" },
-            { label: "Fairness Score (0–100)", value: true },
-            { label: "Line-item breakdown", value: "Full" },
-            { label: "Regional market comparison", value: true },
-            { label: "Parts markup analysis", value: true },
-            { label: "Labor rate benchmarking", value: true },
-            { label: "Negotiation script", value: "Tailored" },
-            { label: "Negotiation template library", value: "15+ templates" },
-            { label: "PDF export", value: true },
-            { label: "Priority support", value: "Priority + chat" },
-            { label: "Team seats", value: "Up to 10" },
-            { label: "Team quote history & tracking", value: true },
+            { label: "Everything in Pro", value: true },
+            { label: "Team Seats", value: "Up to 10" },
+            { label: "Team Quote History", value: true },
+            { label: "API Access", value: "Beta" },
+            { label: "Custom Market Reports", value: true },
+            { label: "White-label PDF Export", value: true },
+            { label: "Priority Support", value: "Phone + Chat" },
         ],
     },
 ];
@@ -162,8 +157,8 @@ export default function PricingPage() {
                         <div
                             key={tier.id}
                             className={`relative flex flex-col rounded-[32px] border p-8 ${tier.highlight
-                                    ? "bg-navy text-white border-navy shadow-2xl shadow-navy/20 scale-105"
-                                    : "bg-neutral-50 text-navy border-neutral-100"
+                                ? "bg-navy text-white border-navy shadow-2xl shadow-navy/20 scale-105"
+                                : "bg-neutral-50 text-navy border-neutral-100"
                                 }`}
                         >
                             {tier.badge && (
@@ -211,8 +206,8 @@ export default function PricingPage() {
                                 <Link href={tier.ctaHref}>
                                     <button
                                         className={`w-full py-3.5 rounded-full font-bold text-sm transition-all ${tier.highlight
-                                                ? "bg-white text-navy hover:bg-emerald-50"
-                                                : "bg-navy text-white hover:bg-emerald-700"
+                                            ? "bg-white text-navy hover:bg-emerald-50"
+                                            : "bg-navy text-white hover:bg-emerald-700"
                                             }`}
                                     >
                                         {tier.cta} <ArrowRight className="inline w-4 h-4 ml-1" />
@@ -223,8 +218,8 @@ export default function PricingPage() {
                                     onClick={handleUpgrade}
                                     disabled={!paddle}
                                     className={`w-full py-3.5 rounded-full font-bold text-sm transition-all ${tier.highlight
-                                            ? "bg-white text-navy hover:bg-emerald-50"
-                                            : "bg-navy text-white hover:bg-emerald-700"
+                                        ? "bg-white text-navy hover:bg-emerald-50"
+                                        : "bg-navy text-white hover:bg-emerald-700"
                                         } disabled:opacity-50`}
                                 >
                                     {!paddle ? "Loading..." : `${tier.cta} →`}
@@ -233,6 +228,9 @@ export default function PricingPage() {
                         </div>
                     ))}
                 </div>
+
+                {/* Recurring Value Section */}
+                <RecurringValueSection />
 
                 {/* Savings Confidence Guarantee */}
                 <div className="max-w-3xl mx-auto mb-20">

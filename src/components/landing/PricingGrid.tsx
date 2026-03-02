@@ -8,11 +8,11 @@ import Link from "next/link";
 export function PricingGrid() {
     const comparison = [
         { feature: "Quote Checks", free: "1 per month", pro: "Unlimited" },
-        { feature: "Market Comparison", free: "Basic", pro: "Advanced (Regional)" },
-        { feature: "Expert Scripts", free: "Standard", pro: "Full AI Library" },
-        { feature: "Markup Detection", free: "Limited", pro: "Precision Line-by-Line" },
+        { feature: "Digital Garage & Home Ledger", free: false, pro: "Full Tracking" },
+        { feature: "Live Market Rate Alerts", free: "Basic", pro: "Real-time ZIP Tracking" },
+        { feature: "Subscription Auditing", free: false, pro: "Automated" },
+        { feature: "Verified Provider Network", free: false, pro: "Full Access" },
         { feature: "Priority Support", free: false, pro: true },
-        { feature: "Bulk Analysis", free: false, pro: true },
     ];
 
     return (
@@ -71,7 +71,7 @@ export function PricingGrid() {
                     </div>
 
                     <ul className="space-y-4 mb-10 relative z-10">
-                        {["Unlimited Quote Analyses", "Advanced AI Negotiation", "Priority Market Data", "Expert Script Library"].map((item, i) => (
+                        {["Digital Garage Asset Tracking", "Live Market Rate Alerts", "Subscription Bill Auditing", "Verified Provider Network"].map((item, i) => (
                             <li key={i} className="flex items-center text-sm text-white/70 font-bold group-hover:text-white transition-colors">
                                 <Check className="w-5 h-5 text-emerald-400 mr-3 shrink-0" />
                                 {item}
