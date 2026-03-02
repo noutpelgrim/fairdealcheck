@@ -11,6 +11,7 @@ import { NegotiationScript } from "@/components/landing/NegotiationScript";
 import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
 import { DemoVideo } from "@/components/landing/DemoVideo";
 import { ProofTrustSection } from "@/components/landing/ProofTrustSection";
+import { SavingsCounter } from "@/components/landing/SavingsCounter";
 import { FAQSection } from "@/components/landing/FAQSection";
 
 export default function Home() {
