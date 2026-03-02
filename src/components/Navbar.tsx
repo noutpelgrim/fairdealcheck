@@ -58,7 +58,7 @@ export function Navbar() {
                     </Link>
                     <Link href="/analyze" className="sm:ml-2">
                         <span className="text-sm font-bold text-navy hover:text-emerald-600 transition-colors bg-white sm:bg-transparent border border-neutral-100 sm:border-none px-3 py-1.5 rounded-full sm:p-0">
-                            Analyze Now
+                            Audit a Quote
                         </span>
                     </Link>
                 </div>

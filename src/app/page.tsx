@@ -35,14 +35,14 @@ export default function Home() {
         {/* Hero Section */}
         <section className="pt-20 sm:pt-32 pb-16 sm:pb-20 px-6 max-w-5xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-navy mb-6 leading-[1.1]">
-            Stop wondering if you&apos;re getting ripped off.
+            The Independent Standard for Service Pricing.
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-navy/60 max-w-xl mx-auto mb-10 leading-relaxed">
-            Know if your quote is fair &mdash; in 60 seconds. Upload any service quote, get a Fairness Score, and the exact words to negotiate a lower price.
+            The mandatory audit before you approve any quote. Verify fairness in 60 seconds with independent benchmarking and expert-grade negotiation scripts.
           </p>
           <Link href="/analyze">
             <Button size="lg" className="h-14 w-full sm:w-auto px-8 rounded-full bg-navy text-white hover:bg-navy-light shadow-xl shadow-navy/10 transition-all font-semibold">
-              Check My Quote — It&apos;s Free
+              Audit My Quote — It&apos;s Free
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </Link>
@@ -86,13 +86,13 @@ export default function Home() {
         <section className="pb-16 sm:pb-24 px-6 max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-              How It Works
+              The Audit Process
             </div>
             <h2 className="text-4xl font-bold text-navy tracking-tight mb-3">
-              Three steps to a fairer price.
+              The 60-Second Pricing Audit.
             </h2>
             <p className="text-navy/60 max-w-md mx-auto">
-              Upload your quote, see your score, and get the exact words to negotiate &mdash; all in under 60 seconds.
+              Neutral, data-backed verification of any service quote &mdash; powered by the FairDeal Independent Standard.
             </p>
           </div>
 
@@ -113,9 +113,9 @@ export default function Home() {
               <div className="w-12 h-12 rounded-2xl bg-navy text-white flex items-center justify-center text-lg font-bold mb-6">
                 2
               </div>
-              <h3 className="text-xl font-bold text-navy mb-3">Get Your Fairness Score</h3>
+              <h3 className="text-xl font-bold text-navy mb-3">Generate Audit Report</h3>
               <p className="text-navy/60 leading-relaxed text-sm">
-                We compare your quote against thousands of verified real-world prices in your area. Receive a 0&ndash;100 score and a clear breakdown of every overpriced line item.
+                We benchmark your quote against thousands of verified transactions in your ZIP code. Receive a neutral 0&ndash;100 score and a line-item pricing audit.
               </p>
             </div>
 
@@ -124,9 +124,9 @@ export default function Home() {
               <div className="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-lg font-bold mb-6">
                 3
               </div>
-              <h3 className="text-xl font-bold text-navy mb-3">Negotiate With Confidence</h3>
+              <h3 className="text-xl font-bold text-navy mb-3">Execute Strategy</h3>
               <p className="text-navy/60 leading-relaxed text-sm">
-                No confrontation needed. We generate polite, professional negotiation scripts tailored to your quote &mdash; so you know exactly what to say to get a lower price, every time.
+                Use the standard. We generate expert negotiation scripts tailored to your audit results, giving you the leverage to align your quote with market reality.
               </p>
             </div>
           </div>
@@ -138,7 +138,7 @@ export default function Home() {
         <div className="py-20 px-6 text-center max-w-xl mx-auto">
           <Link href="/analyze">
             <Button className="h-14 w-full sm:w-auto px-10 rounded-full bg-navy text-white hover:bg-navy-light shadow-xl shadow-navy/10 transition-all font-bold text-lg">
-              Check My Quote &mdash; It&apos;s Free
+              Audit My Quote &mdash; It&apos;s Free
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </Link>
@@ -277,7 +277,7 @@ export default function Home() {
       <div className={`fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white/95 backdrop-blur border-t border-neutral-100 px-4 py-3 shadow-2xl transition-all duration-300 transform ${showStickyCTA ? "translate-y-0" : "translate-y-full"}`}>
         <Link href="/analyze">
           <Button className="w-full h-12 rounded-full bg-navy text-white font-bold text-sm shadow-lg">
-            Check My Quote — It&apos;s Free →
+            Audit My Quote — It&apos;s Free →
           </Button>
         </Link>
       </div>
