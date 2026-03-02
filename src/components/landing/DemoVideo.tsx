@@ -3,12 +3,12 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const SCENES = [
-  { id: "s1", label: "Hook", start: 0, end: 6 },
-  { id: "s2", label: "Upload", start: 5, end: 12 },
-  { id: "s3", label: "Score", start: 11, end: 18 },
-  { id: "s4", label: "Breakdown", start: 17, end: 24 },
-  { id: "s5", label: "Script", start: 23, end: 29 },
-  { id: "s6", label: "Act", start: 28, end: 36 },
+  { id: "s1", label: "The Hook", start: 0, end: 5 },
+  { id: "s2", label: "The Mechanism", start: 4, end: 15 },
+  { id: "s3", label: "The Proof", start: 14, end: 25 },
+  { id: "s4", label: "The Script", start: 24, end: 30 },
+  { id: "s5", label: "Transparency", start: 29, end: 33 },
+  { id: "s6", label: "The CTA", start: 32, end: 36 },
 ];
 const TOTAL = 36;
 
@@ -107,10 +107,10 @@ export function DemoVideo() {
           See It In Action
         </div>
         <h2 className="text-3xl font-bold text-navy tracking-tight mb-1">
-          From quote to negotiation in 36 seconds.
+          Hard data. Not an AI gimmick.
         </h2>
         <p className="text-navy/50 text-sm">
-          Watch how FairDealCheck turns a confusing repair bill into a data-backed action plan.
+          Watch exactly how FairDealCheck exposes hidden markups in 36 seconds.
         </p>
       </div>
 
@@ -160,20 +160,20 @@ export function DemoVideo() {
             <div className="relative mb-6" style={{ transform: "rotate(-1.5deg)" }}>
               <div className="bg-white border border-neutral-200 rounded-2xl shadow-lg p-6 w-72">
                 <p className="text-[10px] font-bold tracking-widest uppercase text-neutral-400 mb-3">Repair Estimate #4821</p>
-                {[["Brake Pads & Rotors", "$340"], ["Labor (3.5 hrs)", "$580"], ["Diagnostic Fee", "$140"], ["Miscellaneous", "$140"]].map(([l, v]) => (
+                {[["Brake Pads & Rotors", "$780"], ["Labor (3.5 hrs)", "$560"]].map(([l, v]) => (
                   <div key={l} className="flex justify-between text-xs py-1.5 border-b border-neutral-50 text-neutral-600"><span>{l}</span><span>{v}</span></div>
                 ))}
-                <div className="flex justify-between text-base font-black pt-3 text-red-600"><span>TOTAL DUE</span><span>$1,200</span></div>
+                <div className="flex justify-between text-base font-black pt-3 text-red-600"><span>TOTAL DUE</span><span>$1,340</span></div>
               </div>
               <div className={`absolute top-3 right-3 border-2 border-red-500 text-red-500 text-[9px] font-black px-2 py-0.5 rounded rotate-12 bg-white tracking-widest transition-opacity duration-500 ${is(0) ? "opacity-100 delay-500" : "opacity-0"}`}>FAIR?</div>
             </div>
-            <div className={`text-center transition-all duration-500 ${is(0) ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-3"}`}>
-              <p className="text-xl font-black text-navy leading-tight mb-1">You just got a $1,200 quote.<br /><span className="text-red-500">But should you have said yes?</span></p>
-              <p className="text-xs text-neutral-500 max-w-xs mx-auto">Mechanics rely on pricing confusion. <strong className="text-navy">FairDealCheck changes that.</strong></p>
+            <div className={`text-center px-4 transition-all duration-500 ${is(0) ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-3"}`}>
+              <p className="text-xl font-black text-navy leading-tight mb-1">Think they are overcharging you?<br /><span className="text-red-500">They probably are.</span></p>
+              <p className="text-xs text-neutral-500 max-w-xs mx-auto">And an AI chatbot can&apos;t prove it. <strong className="text-navy">Data can.</strong></p>
             </div>
           </div>
 
-          {/* ── SCENE 2: UPLOAD ── */}
+          {/* ── SCENE 2: UPLOAD & MECHANISM ── */}
           <div className={`absolute inset-0 flex flex-col items-center justify-center p-4 transition-opacity duration-500 ${is(1) ? "opacity-100" : "opacity-0"}`}>
             <div className="bg-white border border-neutral-200 rounded-2xl shadow p-5 w-full max-w-[460px]">
               <div className="flex items-center gap-2 mb-3">
@@ -181,110 +181,91 @@ export function DemoVideo() {
                 <span className="flex-1 bg-neutral-100 rounded text-[10px] text-neutral-400 px-2 py-1 ml-1">fairdealcheck.com/analyze</span>
               </div>
               <div className={`border-2 border-dashed rounded-xl p-7 text-center transition-all duration-500 ${is(1) ? "border-emerald-400 bg-emerald-50/40" : "border-neutral-200"}`}>
-                <div className="text-2xl mb-1">📄</div>
-                <p className="text-sm font-bold text-navy">Drop your repair quote here</p>
-                <p className="text-xs text-neutral-400 mt-1">PDF, image, or text</p>
+                <div className="text-2xl mb-1">🛡️</div>
+                <p className="text-sm font-bold text-navy">Proprietary Database Analysis</p>
+                <p className="text-xs text-neutral-400 mt-1">Cross-referencing 84,000 distributor catalogs...</p>
                 <div className={`mt-3 inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-lg transition-opacity duration-500 ${is(1) ? "opacity-100 delay-700" : "opacity-0"}`}>
-                  ✅ RepairEstimate_4821.pdf — Uploaded
-                </div>
-                <div className={`mt-1.5 text-[10px] text-neutral-400 transition-opacity duration-500 ${is(1) ? "opacity-100 delay-[900ms]" : "opacity-0"}`}>
-                  🔒 Encrypted · Auto-deleted after analysis
+                  📍 Matching Local ZIP Code Benchmarks...
                 </div>
                 <div className={`mt-2 h-1 bg-neutral-100 rounded-full overflow-hidden transition-opacity duration-300 ${is(1) ? "opacity-100 delay-[1100ms]" : "opacity-0"}`}>
                   <div className="h-full bg-emerald-500 rounded-full" style={{ width: is(1) ? "100%" : "0%", transition: is(1) ? "width 1.4s ease 1.2s" : "none" }} />
                 </div>
               </div>
             </div>
-            <p className={`text-xs text-neutral-500 transition-all duration-500 delay-300 ${is(1) ? "opacity-100" : "opacity-0"}`}>Compared against <strong className="text-navy">84,000+ verified records from your region.</strong></p>
+            <p className={`text-xs text-neutral-500 mt-4 text-center max-w-sm transition-all duration-500 delay-300 ${is(1) ? "opacity-100" : "opacity-0"}`}>We don&apos;t use AI to guess. <strong className="text-navy">We use real-world localized pricing data.</strong></p>
           </div>
 
-          {/* ── SCENE 3: SCORE ── */}
-          <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${is(2) ? "opacity-100" : "opacity-0"}`}>
-            <div className="bg-white border border-neutral-200 rounded-2xl shadow-lg p-8 text-center">
-              <p className="text-[10px] font-bold tracking-widest uppercase text-neutral-400 mb-4">Your Fairness Score</p>
-              <div className="relative w-32 h-32 mx-auto mb-4">
-                <svg className="w-full h-full -rotate-90" viewBox="0 0 128 128">
-                  <circle cx="64" cy="64" r="54" fill="none" stroke="#f1f5f9" strokeWidth="10" />
-                  <circle cx="64" cy="64" r="54" fill="none" stroke="#f59e0b" strokeWidth="10" strokeLinecap="round" strokeDasharray="339"
-                    style={{ strokeDashoffset: is(2) ? 339 * 0.39 : 339, transition: is(2) ? "stroke-dashoffset 1.8s cubic-bezier(0.4,0,0.2,1) 0.3s" : "none" }} />
-                </svg>
-                <span className={`absolute inset-0 flex items-center justify-center text-4xl font-black text-amber-500 transition-opacity duration-500 ${is(2) ? "opacity-100 delay-500" : "opacity-0"}`}>61</span>
-              </div>
-              <div className={`inline-block bg-amber-50 border border-amber-200 text-amber-700 font-bold px-4 py-1.5 rounded-xl mb-2 transition-all duration-500 ${is(2) ? "opacity-100 scale-100 delay-[1200ms]" : "opacity-0 scale-95"}`}>⚠️ Overpriced</div>
-              <p className={`text-xs text-neutral-400 max-w-[220px] mx-auto transition-opacity duration-500 ${is(2) ? "opacity-100 delay-[1600ms]" : "opacity-0"}`}>Below the 75/100 fair threshold — <strong className="text-navy">verified regional benchmark data.</strong></p>
-            </div>
-          </div>
-
-          {/* ── SCENE 4: BREAKDOWN ── */}
-          <div className={`absolute inset-0 flex items-center justify-center p-4 transition-opacity duration-500 ${is(3) ? "opacity-100" : "opacity-0"}`}>
+          {/* ── SCENE 3: THE PROOF ── */}
+          <div className={`absolute inset-0 flex items-center justify-center p-4 transition-opacity duration-500 ${is(2) ? "opacity-100" : "opacity-0"}`}>
             <div className="bg-white border border-neutral-200 rounded-2xl shadow-lg p-5 w-full max-w-[520px]">
-              <p className="text-[9px] font-bold tracking-widest uppercase text-neutral-400 mb-3 pb-2 border-b border-neutral-100">Every Line Item, Audited</p>
+              <p className="text-[10px] font-bold tracking-widest uppercase text-navy mb-1">Marcus — Dallas, TX</p>
+              <p className="text-[9px] font-bold tracking-widest uppercase text-neutral-400 mb-3 pb-2 border-b border-neutral-100">$1,340 Brake Quote Analyzed</p>
               {[
-                { label: "Brake Pads & Rotors", charged: "$340", fair: "$190–$220", tag: "+$120 Over", over: true, dl: "delay-[200ms]" },
-                { label: "Labor (3.5 hrs @ $165/hr)", charged: "$580", fair: "$320–$400", tag: "+$180 Over", over: true, dl: "delay-[400ms]" },
-                { label: "Diagnostic Fee", charged: "$140", fair: "$80–$120", tag: "Borderline", over: false, dl: "delay-[600ms]" },
+                { label: "Brake Pads & Rotors", charged: "$780", fair: "$350–$420", tag: "55% MARKUP", over: true, dl: "delay-[200ms]" },
+                { label: "Labor (3.5 hrs)", charged: "$560", fair: "$400–$480", tag: "+$80 Over", over: true, dl: "delay-[400ms]" },
               ].map((r) => (
-                <div key={r.label} className={`grid grid-cols-[1fr_70px_90px_76px] gap-2 items-center py-2 border-b border-neutral-50 text-xs transition-all duration-400 ${is(3) ? `opacity-100 translate-x-0 ${r.dl}` : "opacity-0 -translate-x-3"}`}>
+                <div key={r.label} className={`grid grid-cols-[1fr_70px_90px_76px] gap-2 items-center py-2 border-b border-neutral-50 text-xs transition-all duration-400 ${is(2) ? `opacity-100 translate-x-0 ${r.dl}` : "opacity-0 -translate-x-3"}`}>
                   <span className="font-semibold text-navy">{r.label}</span>
                   <span className="font-bold text-red-500">{r.charged}</span>
                   <span className="text-neutral-400">{r.fair}</span>
                   <span className={`text-center px-1.5 py-0.5 rounded-full font-bold text-[10px] ${r.over ? "bg-red-50 text-red-500 border border-red-100" : "bg-amber-50 text-amber-600 border border-amber-100"}`}>{r.tag}</span>
                 </div>
               ))}
-              <div className={`flex justify-between items-end pt-3 transition-opacity duration-500 ${is(3) ? "opacity-100 delay-[900ms]" : "opacity-0"}`}>
+              <div className={`flex justify-between items-end pt-3 transition-opacity duration-500 ${is(2) ? "opacity-100 delay-[900ms]" : "opacity-0"}`}>
                 <div>
-                  <p className="text-[9px] text-neutral-400 mb-0.5">What people in your area actually pay</p>
-                  <p className="text-xl font-black text-emerald-600">Up to $300 overcharged</p>
+                  <p className="text-[9px] text-neutral-400 mb-0.5">Potential Savings Identified</p>
+                  <p className="text-xl font-black text-emerald-600">$400 Overcharged</p>
                 </div>
-                <p className="text-[9px] text-neutral-300 text-right leading-relaxed">84,000+<br />regional records</p>
               </div>
             </div>
           </div>
 
-          {/* ── SCENE 5: SCRIPT ── */}
-          <div className={`absolute inset-0 flex items-center justify-center p-4 transition-opacity duration-500 ${is(4) ? "opacity-100" : "opacity-0"}`}>
+          {/* ── SCENE 4: SCRIPT ── */}
+          <div className={`absolute inset-0 flex items-center justify-center p-4 transition-opacity duration-500 ${is(3) ? "opacity-100" : "opacity-0"}`}>
             <div className="bg-white border border-neutral-200 rounded-2xl shadow-lg p-6 w-full max-w-[500px]">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-8 h-8 bg-emerald-50 border border-emerald-100 rounded-lg flex items-center justify-center text-sm">💬</div>
-                <p className="font-bold text-sm text-navy">Then we give you <span className="text-emerald-600">the exact words.</span></p>
+                <p className="font-bold text-sm text-navy">Then we generate <span className="text-emerald-600">the exact counter-offer.</span></p>
               </div>
-              <div className={`bg-neutral-50 border-l-4 border-l-emerald-500 rounded-r-xl p-4 text-sm text-neutral-600 italic leading-relaxed transition-all duration-500 ${is(4) ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-2"}`}>
-                &ldquo;I looked at regional pricing data for this repair. I&apos;m seeing parts in the{" "}
-                <strong className="text-navy not-italic">$190–$220 range</strong> and labor at{" "}
-                <strong className="text-navy not-italic">$320–$400.</strong> Can you help me understand the difference?&rdquo;
+              <div className={`bg-neutral-50 border-l-4 border-l-emerald-500 rounded-r-xl p-4 text-sm text-neutral-600 italic leading-relaxed transition-all duration-500 ${is(3) ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-2"}`}>
+                &ldquo;I looked at regional pricing for Dallas. The parts are coming in 55% over retail at{" "}
+                <strong className="text-navy not-italic">$780.</strong> I would like to move forward, but can we use OEM-equivalent parts at standard retail pricing, closer to $380?&rdquo;
               </div>
-              <div className={`flex flex-wrap gap-2 mt-3 transition-opacity duration-500 ${is(4) ? "opacity-100 delay-700" : "opacity-0"}`}>
-                {["💡 Data-backed", "✅ Non-confrontational", "📋 Copy & paste ready"].map((c) => (
-                  <span key={c} className="text-[10px] font-semibold text-neutral-500 bg-neutral-50 border border-neutral-100 px-2.5 py-1 rounded-md">{c}</span>
-                ))}
+              <div className={`flex flex-wrap gap-2 mt-3 transition-opacity duration-500 ${is(3) ? "opacity-100 delay-[700ms]" : "opacity-0"}`}>
+                <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-md">Marcus saved $400 in 5 minutes</span>
               </div>
+            </div>
+          </div>
+
+          {/* ── SCENE 5: TRANSPARENCY ── */}
+          <div className={`absolute inset-0 flex flex-col items-center justify-center p-4 transition-opacity duration-500 ${is(4) ? "opacity-100" : "opacity-0"}`}>
+            <div className={`bg-navy border border-navy shadow-lg p-8 rounded-full flex items-center justify-center w-32 h-32 mb-6 transition-all duration-500 ${is(4) ? "scale-100 opacity-100 delay-200" : "scale-90 opacity-0"}`}>
+              <svg width="48" height="48" viewBox="0 0 28 28" fill="none">
+                <path d="M14 2L4 6.5V13.5C4 19.025 8.4 24.225 14 25.5C19.6 24.225 24 19.025 24 13.5V6.5L14 2Z" fill="#10b981" />
+                <path d="M10 14L13 17L18 11" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            <h3 className={`text-2xl font-black text-navy text-center leading-tight mb-2 transition-all duration-500 ${is(4) ? "opacity-100 translate-y-0 delay-[400ms]" : "opacity-0 translate-y-3"}`}>
+              100% Independent.
+            </h3>
+            <div className={`flex flex-col items-center gap-2 transition-opacity duration-500 ${is(4) ? "opacity-100 delay-[600ms]" : "opacity-0"}`}>
+              <span className="text-sm font-bold text-red-500 bg-red-50 px-3 py-1 rounded-full uppercase tracking-wider">Zero Contractor Kickbacks</span>
+              <span className="text-xs text-neutral-500 mt-2">We work only for your wallet.</span>
             </div>
           </div>
 
           {/* ── SCENE 6: CTA ── */}
-          <div className={`absolute inset-0 flex flex-col items-center justify-center gap-3 transition-opacity duration-500 ${is(5) ? "opacity-100" : "opacity-0"}`}>
-            <div className={`flex items-center gap-2 transition-all duration-400 ${is(5) ? "opacity-100 delay-100" : "opacity-0"}`}>
-              <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
-                <path d="M14 2L4 6.5V13.5C4 19.025 8.4 24.225 14 25.5C19.6 24.225 24 19.025 24 13.5V6.5L14 2Z" fill="#0f172a" />
-                <path d="M10 14L13 17L18 11" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              <span className="text-sm font-black text-navy">FairDeal<span className="text-emerald-500">Check</span></span>
-            </div>
-            <h3 className={`text-3xl font-black text-navy text-center leading-tight transition-all duration-500 ${is(5) ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-3"}`}>
-              Walk in knowing exactly<br />what <span className="text-emerald-500">fair</span> looks like.
+          <div className={`absolute inset-0 flex flex-col items-center justify-center gap-3 transition-opacity duration-500 ${is(5) ? "opacity-100 bg-navy" : "opacity-0"}`}>
+            <h3 className={`text-4xl font-black text-white text-center leading-tight transition-all duration-500 ${is(5) ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-3"}`}>
+              GET HARD DATA.<br /><span className="text-emerald-400">NOT GUESSES.</span>
             </h3>
-            <p className={`text-sm text-neutral-500 text-center max-w-xs transition-opacity duration-500 ${is(5) ? "opacity-100 delay-[400ms]" : "opacity-0"}`}>
-              Upload your quote. Get your score. Negotiate with confidence — in 60 seconds.
+            <p className={`text-sm text-white/60 text-center max-w-sm transition-opacity duration-500 ${is(5) ? "opacity-100 delay-[400ms]" : "opacity-0"}`}>
+              Stop guessing. Don&apos;t pay that bill yet.
             </p>
-            <div className={`transition-all duration-400 ${is(5) ? "opacity-100 scale-100 delay-[600ms]" : "opacity-0 scale-95"}`}>
-              <a href="/analyze" className="inline-flex items-center gap-2 bg-navy text-white font-bold text-sm px-7 py-3 rounded-full shadow-lg shadow-navy/20 hover:bg-navy/90 transition-colors">
-                Get My Fairness Score — It&apos;s Free →
+            <div className={`mt-4 transition-all duration-400 ${is(5) ? "opacity-100 scale-100 delay-[600ms]" : "opacity-0 scale-95"}`}>
+              <a href="/analyze" className="inline-flex items-center gap-2 bg-emerald-500 text-navy font-black text-sm px-8 py-4 rounded-full shadow-lg hover:bg-emerald-400 transition-colors">
+                Audit My Quote In 60 Seconds →
               </a>
-            </div>
-            <div className={`flex gap-4 transition-opacity duration-500 ${is(5) ? "opacity-100 delay-[800ms]" : "opacity-0"}`}>
-              {["🔒 Encrypted", "🚫 Auto-deleted", "✅ GDPR"].map((t) => (
-                <span key={t} className="text-[10px] text-neutral-400 font-medium">{t}</span>
-              ))}
             </div>
           </div>
 
