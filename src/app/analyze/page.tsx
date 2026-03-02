@@ -6,8 +6,7 @@ import { AnalysisResult, AnalysisData } from "@/components/analyzer/AnalysisResu
 import { ScriptGenerator, ScriptsData } from "@/components/analyzer/ScriptGenerator";
 import { Button } from "@/components/ui/Button";
 import { ArrowLeft } from "lucide-react";
-import Link from "next/link";
-import { Logo } from "@/components/Logo";
+import { Navbar } from "@/components/Navbar";
 
 import { QuoteUploader } from "@/components/analyzer/QuoteUploader";
 
@@ -93,19 +92,9 @@ export default function AnalyzePage() {
 
     return (
         <div className="min-h-screen bg-neutral-50 flex flex-col">
-            {/* Simple Header */}
-            <header className="bg-white border-b border-neutral-100 py-4 px-6 flex items-center justify-between">
-                <Link href="/" className="flex items-center space-x-2 text-neutral-900 hover:text-neutral-600 transition-colors">
-                    <ArrowLeft className="h-4 w-4" />
-                    <span className="text-sm font-medium">Back to Home</span>
-                </Link>
-                <div className="flex items-center justify-center">
-                    <Logo />
-                </div>
-                <div className="w-[100px]"></div> {/* Spacer for centering */}
-            </header>
+            <Navbar />
 
-            <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8">
+            <main className="flex-grow pt-24 pb-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-3xl mx-auto">
                     {!analysis ? (
                         <div className="space-y-6">

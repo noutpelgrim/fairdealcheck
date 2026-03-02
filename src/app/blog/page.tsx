@@ -17,17 +17,7 @@ export default function BlogPage() {
 
     return (
         <div className="min-h-screen bg-white">
-            {/* Nav */}
-            <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100">
-                <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-                    <Logo />
-                    <Link href="/analyze">
-                        <span className="text-sm font-medium text-navy hover:text-emerald-600 transition-colors">
-                            Analyze Now
-                        </span>
-                    </Link>
-                </div>
-            </nav>
+            <Navbar />
 
             <main className="pt-32 pb-24 px-6 max-w-5xl mx-auto">
                 {/* Header */}

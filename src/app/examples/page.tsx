@@ -95,16 +95,7 @@ const scoreFactors = [
 export default function ExamplesPage() {
     return (
         <div className="min-h-screen bg-white">
-            {/* Nav */}
-            <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100">
-                <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-                    <Logo />
-                    <div className="flex items-center gap-6">
-                        <Link href="/blog" className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">Blog</Link>
-                        <Link href="/analyze" className="text-sm font-medium text-navy hover:text-emerald-600 transition-colors">Analyze Now</Link>
-                    </div>
-                </div>
-            </nav>
+            <Navbar />
 
             <main className="pt-32 pb-24 px-6 max-w-5xl mx-auto">
                 {/* Header */}
