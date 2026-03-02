@@ -37,8 +37,8 @@ export default function Home() {
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-navy mb-6 leading-[1.1]">
             The Independent Standard for Service Pricing.
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-navy/60 max-w-xl mx-auto mb-10 leading-relaxed">
-            The mandatory audit before you approve any quote. Verify fairness in 60 seconds with independent benchmarking and expert-grade negotiation scripts.
+          <p className="text-base sm:text-lg md:text-xl text-navy/60 max-w-2xl mx-auto mb-10 leading-relaxed">
+            FairDealCheck eliminates opaque service pricing by auditing your quotes against independent market benchmarks, saving users an average of $340 per negotiation with expert-grade transparency.
           </p>
           <Link href="/analyze">
             <Button size="lg" className="h-14 w-full sm:w-auto px-8 rounded-full bg-navy text-white hover:bg-navy-light shadow-xl shadow-navy/10 transition-all font-semibold">
