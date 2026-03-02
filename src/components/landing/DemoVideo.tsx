@@ -109,8 +109,8 @@ export function DemoVideo() {
         <h2 className="text-3xl font-bold text-navy tracking-tight mb-1">
           Hard data. Not an AI gimmick.
         </h2>
-        <p className="text-navy/50 text-sm">
-          Watch exactly how FairDealCheck exposes hidden markups in 36 seconds.
+        <p className="text-navy/50 text-sm font-semibold">
+          ▶ Watch Demo — See Real Audit in 36 Seconds
         </p>
       </div>
 
