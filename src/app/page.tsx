@@ -10,8 +10,7 @@ import { AnalysisPreview } from "@/components/landing/AnalysisPreview";
 import { NegotiationScript } from "@/components/landing/NegotiationScript";
 import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
 import { DemoVideo } from "@/components/landing/DemoVideo";
-import { AuthoritySection } from "@/components/landing/AuthoritySection";
-import { SavingsCounter } from "@/components/landing/SavingsCounter";
+import { ProofTrustSection } from "@/components/landing/ProofTrustSection";
 import { FAQSection } from "@/components/landing/FAQSection";
 
 export default function Home() {
@@ -90,8 +89,10 @@ export default function Home() {
         </section>
 
 
-        {/* Authority / Pricing Standard Section */}
-        <AuthoritySection />
+        {/* Proof & Trust Section */}
+        <div id="proof">
+          <ProofTrustSection />
+        </div>
 
         {/* How It Works Section */}
         <section className="pb-16 sm:pb-24 px-6 max-w-5xl mx-auto">
