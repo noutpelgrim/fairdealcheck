@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/Button";
 import { FairnessGauge } from "@/components/landing/FairnessGauge";
 import { AnalysisPreview } from "@/components/landing/AnalysisPreview";
 import { NegotiationScript } from "@/components/landing/NegotiationScript";
-import { HowItWorksDeep } from "@/components/landing/HowItWorksDeep";
 import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
 import { DemoVideo } from "@/components/landing/DemoVideo";
 import { AuthoritySection } from "@/components/landing/AuthoritySection";
@@ -134,8 +133,6 @@ export default function Home() {
         </section>
 
 
-        {/* How It Works Deep Dive */}
-        <HowItWorksDeep />
 
         {/* Mid-page CTA to capture intent */}
         <div className="py-20 px-6 text-center max-w-xl mx-auto">
