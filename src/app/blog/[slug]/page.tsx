@@ -2,8 +2,9 @@ import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getAllPosts } from "@/lib/blog";
-import { ShieldCheck, ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
+import { Logo } from "@/components/Logo";
 import type { Metadata } from "next";
 
 interface Props {
@@ -106,10 +107,7 @@ export default async function BlogPostPage({ params }: Props) {
 
             <footer className="py-12 border-t border-neutral-100">
                 <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-neutral-400">
-                    <Link href="/" className="flex items-center space-x-2">
-                        <ShieldCheck className="h-5 w-5 opacity-40" />
-                        <span className="font-semibold tracking-tight opacity-60">FairDealCheck</span>
-                    </Link>
+                    <Logo className="opacity-60 grayscale" />
                     <div className="flex items-center space-x-8">
                         <Link href="/privacy" className="hover:text-navy transition-colors">Privacy</Link>
                         <Link href="/terms" className="hover:text-navy transition-colors">Terms</Link>

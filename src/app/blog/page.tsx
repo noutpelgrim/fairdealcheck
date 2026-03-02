@@ -1,8 +1,9 @@
 ﻿import React from "react";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
-import { ShieldCheck, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
+import { Logo } from "@/components/Logo";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,10 +20,7 @@ export default function BlogPage() {
             {/* Nav */}
             <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100">
                 <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-                    <Link href="/" className="flex items-center space-x-2">
-                        <ShieldCheck className="h-6 w-6 text-navy" />
-                        <span className="font-bold text-lg tracking-tight text-navy">FairDeal</span>
-                    </Link>
+                    <Logo />
                     <Link href="/analyze">
                         <span className="text-sm font-medium text-navy hover:text-emerald-600 transition-colors">
                             Analyze Now
@@ -90,10 +88,7 @@ export default function BlogPage() {
 
             <footer className="py-12 border-t border-neutral-100">
                 <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-neutral-400">
-                    <Link href="/" className="flex items-center space-x-2">
-                        <ShieldCheck className="h-5 w-5 opacity-40" />
-                        <span className="font-semibold tracking-tight opacity-60">FairDealCheck</span>
-                    </Link>
+                    <Logo className="opacity-60 grayscale" />
                     <div className="flex items-center space-x-8">
                         <Link href="/privacy" className="hover:text-navy transition-colors">Privacy</Link>
                         <Link href="/terms" className="hover:text-navy transition-colors">Terms</Link>

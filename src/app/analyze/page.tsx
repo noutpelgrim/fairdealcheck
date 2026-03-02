@@ -5,8 +5,9 @@ import { QuoteForm, QuoteData } from "@/components/analyzer/QuoteForm";
 import { AnalysisResult, AnalysisData } from "@/components/analyzer/AnalysisResult";
 import { ScriptGenerator, ScriptsData } from "@/components/analyzer/ScriptGenerator";
 import { Button } from "@/components/ui/Button";
-import { ShieldCheck, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { Logo } from "@/components/Logo";
 
 import { QuoteUploader } from "@/components/analyzer/QuoteUploader";
 
@@ -98,9 +99,8 @@ export default function AnalyzePage() {
                     <ArrowLeft className="h-4 w-4" />
                     <span className="text-sm font-medium">Back to Home</span>
                 </Link>
-                <div className="flex items-center space-x-2 font-semibold">
-                    <ShieldCheck className="h-5 w-5" />
-                    <span>FairDealCheck</span>
+                <div className="flex items-center justify-center">
+                    <Logo />
                 </div>
                 <div className="w-[100px]"></div> {/* Spacer for centering */}
             </header>
