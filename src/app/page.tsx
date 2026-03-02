@@ -300,6 +300,7 @@ export default function Home() {
             <span className="font-semibold tracking-tight text-neutral-400 opacity-60">FairDeal</span>
           </div>
           <div className="flex items-center space-x-8">
+            <Link href="/transparency" className="hover:text-navy transition-colors">Transparency</Link>
             <Link href="/privacy" className="hover:text-navy transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-navy transition-colors">Terms</Link>
             <Link href="/contact" className="hover:text-navy transition-colors">Contact</Link>
