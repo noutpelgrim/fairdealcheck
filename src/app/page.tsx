@@ -34,41 +34,52 @@ export default function Home() {
       <main>
         {/* Hero Section */}
         <section className="pt-20 sm:pt-32 pb-16 sm:pb-20 px-6 max-w-5xl mx-auto text-center">
+          {/* Authority Eyebrow */}
+          <div className="inline-flex items-center space-x-2 text-navy/40 bg-neutral-50 border border-neutral-100 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-8">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+            <span>Independent Pricing Audit Standard</span>
+          </div>
+
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-navy mb-6 leading-[1.1]">
-            The Independent Standard for Service Pricing.
+            Don&apos;t Overpay on Your Next Big Repair Quote.
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-navy/60 max-w-2xl mx-auto mb-10 leading-relaxed">
             FairDealCheck eliminates opaque service pricing by auditing your quotes against independent market benchmarks, saving users an average of $340 per negotiation with expert-grade transparency.
           </p>
-          <Link href="/analyze">
-            <Button size="lg" className="h-14 w-full sm:w-auto px-8 rounded-full bg-navy text-white hover:bg-navy-light shadow-xl shadow-navy/10 transition-all font-semibold">
-              Audit My Quote — It&apos;s Free
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-          </Link>
+          <div className="flex flex-col items-center gap-4">
+            <Link href="/analyze">
+              <Button size="lg" className="h-14 w-full sm:w-auto px-10 rounded-full bg-navy text-white hover:bg-navy-light shadow-2xl shadow-navy/20 transition-all font-bold text-lg">
+                Audit My Quote — It&apos;s Free
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+            <p className="text-xs font-bold text-emerald-600 uppercase tracking-tighter">
+              Audit before you pay • 100% Independent
+            </p>
+          </div>
 
           {/* Demo — directly under CTA for above-the-fold placement */}
           <div className="mt-10 text-left">
             <DemoVideo />
           </div>
 
-          {/* Security badges */}
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            <div className="flex items-center gap-1.5 text-navy/40 text-xs">
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
-              256-bit encrypted
+          {/* Updated Trust Indicators */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+            <div className="flex items-center gap-2 text-navy/60 text-[13px] font-medium">
+              <span className="text-emerald-500">⚖️</span>
+              Neutral Agency
             </div>
-            <div className="flex items-center gap-1.5 text-navy/40 text-xs">
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /></svg>
-              Never shared
+            <div className="flex items-center gap-2 text-navy/60 text-[13px] font-medium">
+              <span className="text-emerald-500">🚫</span>
+              No Kickbacks
             </div>
-            <div className="flex items-center gap-1.5 text-navy/40 text-xs">
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
-              Auto-deleted after analysis
+            <div className="flex items-center gap-2 text-navy/60 text-[13px] font-medium">
+              <span className="text-emerald-500">🛡️</span>
+              100% Independent
             </div>
-            <div className="flex items-center gap-1.5 text-navy/40 text-xs">
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              GDPR compliant
+            <div className="flex items-center gap-2 text-navy/60 text-[13px] font-medium">
+              <span className="text-emerald-500">✅</span>
+              Verified Benchmarks
             </div>
           </div>
 
