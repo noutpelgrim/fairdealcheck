@@ -8,12 +8,39 @@ import { Button } from "@/components/ui/Button";
 import { ShieldCheck, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
+import { QuoteUploader } from "@/components/analyzer/QuoteUploader";
+
 export default function AnalyzePage() {
     const [isLoading, setIsLoading] = useState(false);
     const [quoteAmount, setQuoteAmount] = useState<number | null>(null);
     const [analysis, setAnalysis] = useState<AnalysisData | null>(null);
     const [scripts, setScripts] = useState<ScriptsData | null>(null);
     const [isGeneratingScripts, setIsGeneratingScripts] = useState(false);
+    const [showManualForm, setShowManualForm] = useState(false);
+
+    const handleUploadSuccess = async (analysisId: string) => {
+        setIsLoading(true);
+        // In a real app, we'd fetch the analysis details by ID here.
+        // For the MVP, we'll mock the same result as the form.
+        try {
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            const mockResult: AnalysisData = {
+                fairMin: 1800,
+                fairMax: 2200,
+                status: "overpriced",
+                confidenceScore: 94,
+                recommendation: "Strongly recommend negotiating the labor rate. Our database shows it is 25% higher than the local average for this service.",
+                overpricingPercentage: 30,
+                riskScore: 8
+            };
+            setAnalysis(mockResult);
+            setQuoteAmount(2860); // Mock amount
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     const handleAnalyze = async (data: QuoteData) => {
         setIsLoading(true);
@@ -81,12 +108,40 @@ export default function AnalyzePage() {
             <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-3xl mx-auto">
                     {!analysis ? (
-                        <div className="bg-white rounded-xl shadow-soft p-6 sm:p-10 border border-neutral-100">
-                            <h1 className="text-3xl font-bold mb-2">Analyze Your Quote</h1>
-                            <p className="text-neutral-500 mb-8">
-                                Fill out the details below so we can check if you're getting a fair price.
-                            </p>
-                            <QuoteForm onSubmit={handleAnalyze} isLoading={isLoading} />
+                        <div className="space-y-6">
+                            <div className="bg-white rounded-[40px] shadow-sm p-6 sm:p-12 border border-neutral-100 text-center">
+                                <h1 className="text-4xl font-bold text-navy mb-4">Analyze Your Quote</h1>
+                                <p className="text-navy/50 mb-10 max-w-md mx-auto">
+                                    Upload a file to let our AI do the work, or enter details manually.
+                                </p>
+
+                                <div className="space-y-8">
+                                    <QuoteUploader onSuccess={handleUploadSuccess} />
+
+                                    <div className="relative">
+                                        <div className="absolute inset-0 flex items-center">
+                                            <div className="w-full border-t border-neutral-100"></div>
+                                        </div>
+                                        <div className="relative flex justify-center text-xs uppercase font-bold tracking-widest">
+                                            <span className="bg-white px-4 text-navy/20">or</span>
+                                        </div>
+                                    </div>
+
+                                    {!showManualForm ? (
+                                        <Button
+                                            variant="outline"
+                                            className="w-full h-14 rounded-full border-neutral-200 text-navy/60 font-semibold hover:bg-neutral-50"
+                                            onClick={() => setShowManualForm(true)}
+                                        >
+                                            Enter Details Manually
+                                        </Button>
+                                    ) : (
+                                        <div className="text-left pt-2 animate-in fade-in slide-in-from-top-4 duration-300">
+                                            <QuoteForm onSubmit={handleAnalyze} isLoading={isLoading} />
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
                         </div>
                     ) : (
                         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
