@@ -64,7 +64,7 @@ export function ProofTrustSection() {
                 </div>
 
                 {/* Right Side: Visual Audit Result Card */}
-                <div className="lg:col-span-6">
+                <div className="lg:col-span-6 space-y-6">
                     <Card className="relative p-8 border-neutral-200 shadow-2xl shadow-navy/10 overflow-hidden group">
                         {/* Status Stamp */}
                         <div className="absolute top-6 right-6 -rotate-12 border-4 border-red-500/30 text-red-500/50 px-4 py-1 text-xl font-black uppercase tracking-tighter opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity">
@@ -119,6 +119,24 @@ export function ProofTrustSection() {
                             </div>
                         </div>
                     </Card>
+
+                    {/* Integrated Testimonial Formatting */}
+                    <div className="bg-neutral-50 border border-neutral-100 rounded-3xl p-6 flex gap-4 items-center">
+                        <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-sm">
+                            <Image src="/avatar-marcus.png" alt="Marcus T." width={48} height={48} className="object-cover" />
+                        </div>
+                        <div>
+                            <div className="flex items-center gap-1 mb-1">
+                                {[1, 2, 3, 4, 5].map(i => (
+                                    <svg key={i} className="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                                ))}
+                            </div>
+                            <p className="text-xs text-navy/70 italic font-medium leading-relaxed">
+                                &quot;FairDealCheck flagged a $400 overcharge on my brakes. The data gave me the confidence to walk back in and get the right price.&quot;
+                            </p>
+                            <p className="text-[10px] font-bold text-navy/30 uppercase tracking-widest mt-2">— Marcus T., Columbus OH</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
