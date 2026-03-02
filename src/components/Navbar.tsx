@@ -56,6 +56,11 @@ export function Navbar() {
                             Methodology
                         </span>
                     </Link>
+                    <Link href="/transparency" className="hidden lg:block">
+                        <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">
+                            Transparency
+                        </span>
+                    </Link>
                     <Link href="/analyze" className="sm:ml-2">
                         <span className="text-sm font-bold text-navy hover:text-emerald-600 transition-colors bg-white sm:bg-transparent border border-neutral-100 sm:border-none px-3 py-1.5 rounded-full sm:p-0">
                             Audit a Quote
