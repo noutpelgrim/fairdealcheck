@@ -10,94 +10,87 @@ import { RecurringValueSection } from "@/components/pricing/RecurringValueSectio
 
 const tiers = [
     {
-        id: "starter",
-        name: "Starter",
-        tagline: "Try it risk-free",
-        price: "Free",
-        priceSub: "forever",
+        id: "basic",
+        name: "Basic",
+        tagline: "Instant validation",
+        price: "$0",
+        priceSub: "Forever",
         badge: null,
-        highlight: false,
+        theme: "wireframe",
         cta: "Start for Free",
         ctaHref: "/analyze",
+        priceId: undefined,
         features: [
-            { label: "Quote analyses per month", value: "1" },
-            { label: "Fairness Score (0–100)", value: true },
-            { label: "Line-item breakdown", value: "Basic" },
-            { label: "Regional market comparison", value: true },
-            { label: "Parts markup analysis", value: false },
-            { label: "Labor rate benchmarking", value: false },
-            { label: "Negotiation script", value: "Generic" },
-            { label: "Negotiation template library", value: false },
-            { label: "PDF export", value: false },
-            { label: "Priority support", value: false },
+            { label: "Instant Fairness Score (0-100)", value: true },
+            { label: "Top-level summary (Fair vs. Overpriced)", value: true },
+            { label: "Basic market confidence rating", value: true },
+            { label: "Line-by-line benchmark analysis", value: false },
+            { label: "Exact-match negotiation script", value: false },
+            { label: "Downloadable PDF audit report", value: false },
         ],
     },
     {
         id: "pro",
-        name: "FairDeal Pro",
-        tagline: "For savvy consumers",
-        price: "$9",
+        name: "Pro",
+        tagline: "For active negotiations",
+        price: "$12",
         priceSub: "/month",
-        annualNote: "$90/yr — 2 months free",
-        badge: "Most Popular",
-        highlight: true,
+        badge: null,
+        theme: "solid",
         cta: "Upgrade to Pro",
-        ctaHref: null, // triggers paddle
+        ctaHref: null,
+        priceId: process.env.NEXT_PUBLIC_PADDLE_PRO_PRICE_ID || "pro",
         features: [
-            { label: "Quote analyses per month", value: "Unlimited" },
-            { label: "Digital Garage Asset Ledger", value: true },
-            { label: "Live Market Rate Alerts", value: true },
-            { label: "Subscription Bill Auditing", value: true },
-            { label: "Verified Provider Network", value: true },
-            { label: "Full Line-Item Breakdown", value: true },
-            { label: "Tailored Negotiation Scripts", value: true },
-            { label: "PDF Export for Providers", value: true },
-            { label: "Priority Support", value: "Email" },
+            { label: "Everything in Basic", value: true },
+            { label: "Line-by-line benchmark analysis", value: true },
+            { label: "Exact-match negotiation script", value: true },
+            { label: "Savings estimate range (High/Low)", value: true },
+            { label: "Downloadable PDF audit report", value: true },
+            { label: "Historical price dashboard", value: true },
+            { label: "Unlimited quote audits", value: "5 / month" },
         ],
     },
     {
-        id: "business",
-        name: "FairDeal Business",
-        tagline: "For teams & property managers",
-        price: "$39",
-        priceSub: "/month",
-        annualNote: "$390/yr — 2 months free",
-        badge: null,
-        highlight: false,
-        cta: "Get Business",
-        ctaHref: "mailto:hello@fairdealcheck.com?subject=Business Plan",
+        id: "premium",
+        name: "Premium",
+        tagline: "Year-round peace of mind",
+        price: "$79",
+        priceSub: "/year",
+        badge: "Best Value",
+        theme: "premium",
+        cta: "Get Premium",
+        ctaHref: null,
+        priceId: process.env.NEXT_PUBLIC_PADDLE_PREMIUM_PRICE_ID || "premium",
         features: [
             { label: "Everything in Pro", value: true },
-            { label: "Team Seats", value: "Up to 10" },
-            { label: "Team Quote History", value: true },
-            { label: "API Access", value: "Beta" },
-            { label: "Custom Market Reports", value: true },
-            { label: "White-label PDF Export", value: true },
-            { label: "Priority Support", value: "Phone + Chat" },
+            { label: "Unlimited quote audits", value: true },
+            { label: "Priority analysis speed", value: true },
+            { label: "Digital Asset Log (Home & Auto)", value: true },
+            { label: "Dedicated priority support", value: true },
         ],
     },
 ];
 
 const faqs = [
     {
-        q: "Why pay when I can just Google repair prices?",
-        a: "Google gives you national averages. We give you your ZIP code, your vehicle, your service category — benchmarked against real transactions updated monthly. That specificity is what makes the negotiation actually work.",
+        q: "Do I really need a subscription for this?",
+        a: "If you only have one quote, the Pro plan gives you what you need, and you can cancel anytime. However, most users realize that maintaining cars, homes, and health requires constant quotes. The Premium plan defends your wallet year-round.",
     },
     {
-        q: "What if I only need to check one quote?",
-        a: "Start with Starter — it's free, forever. You get one complete analysis at no cost. Upgrade to Pro when you realize it worked.",
+        q: "Am I guaranteed to save money?",
+        a: "FairDealCheck provides the exact regional benchmarking data used by insurance adjusters and fleet managers. While we cannot force a contractor to lower their price, an objective data report is the ultimate negotiation leverage.",
     },
     {
-        q: "Is there a contract or long-term commitment?",
-        a: "No contracts, no commitments. Pro and Business plans are month-to-month. Cancel anytime in one click — we don't make it hard to leave because we're confident you won't want to.",
+        q: "Can I cancel the monthly plan after I use it?",
+        a: "Yes. There are no lock-in contracts for the Monthly Pro tier. You can cancel your subscription from your dashboard with two clicks.",
     },
     {
-        q: "What if my service isn't in the database?",
-        a: "We cover 200+ service categories across automotive, home services, and appliances. If your category isn't supported, we'll refund your first month — no questions asked.",
+        q: "What if the analysis says my quote is fair?",
+        a: "Then you have bought absolute peace of mind. Knowing you are paying a fair market rate is just as valuable as exposing an overcharge.",
     },
     {
-        q: "Can I share an analysis with a contractor or mechanic?",
-        a: "Yes. Pro and Business users can export a full PDF of their analysis — including the Fairness Score and line-item breakdown — to share directly with a service provider.",
+        q: "Is there a limit to how many quotes I can upload?",
+        a: "The Pro plan includes up to 5 comprehensive audits per month to prevent automated abuse. The Premium Annual plan includes unlimited quote auditing for personal use.",
     },
 ];
 
@@ -119,15 +112,15 @@ export default function PricingPage() {
         }).then((p) => { if (p) setPaddle(p); });
     }, []);
 
-    const handleUpgrade = () => {
+    const handleUpgrade = (priceId?: string) => {
         if (!isSignedIn || !user) {
             window.location.href = "/sign-in?redirect_url=/pricing";
             return;
         }
-        if (paddle) {
+        if (paddle && priceId) {
             paddle.Checkout.open({
                 settings: { displayMode: "overlay", theme: "light" },
-                items: [{ priceId: process.env.NEXT_PUBLIC_PADDLE_PRO_PRICE_ID!, quantity: 1 }],
+                items: [{ priceId, quantity: 1 }],
                 customData: { userId: user.id },
             });
         }
@@ -139,64 +132,58 @@ export default function PricingPage() {
 
             <main className="pt-32 pb-24 px-6">
                 {/* Header */}
-                <div className="text-center mb-16 max-w-2xl mx-auto">
-                    <div className="inline-flex items-center text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-                        Pricing
-                    </div>
-                    <h1 className="text-5xl font-bold text-navy tracking-tight mb-4">
-                        One negotiation pays for a year of Pro.
+                <div className="text-center mb-16 max-w-3xl mx-auto">
+                    <h1 className="text-4xl md:text-5xl font-bold text-navy tracking-tight mb-4">
+                        The average FairDealCheck user saves $340 per audit. Choose your leverage.
                     </h1>
                     <p className="text-lg text-navy/60">
-                        The average FairDealCheck user saves $340 on their first negotiation. Pro costs $9/month.
+                        Stop overpaying for opaque services. Simple, transparent pricing for every tier.
                     </p>
                 </div>
 
                 {/* Pricing cards */}
-                <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 items-end">
                     {tiers.map((tier) => (
                         <div
                             key={tier.id}
-                            className={`relative flex flex-col rounded-[32px] border p-8 ${tier.highlight
-                                ? "bg-navy text-white border-navy shadow-2xl shadow-navy/20 scale-105"
-                                : "bg-neutral-50 text-navy border-neutral-100"
+                            className={`relative flex flex-col rounded-[32px] border p-8 ${tier.theme === "premium"
+                                    ? "bg-white text-navy border-navy shadow-2xl shadow-navy/10 md:-translate-y-4 z-10 lg:p-10"
+                                    : tier.theme === "solid"
+                                        ? "bg-white text-navy border-neutral-200 shadow-sm"
+                                        : "bg-neutral-50/50 text-navy border-neutral-200 border-dashed"
                                 }`}
                         >
                             {tier.badge && (
-                                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-500 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider whitespace-nowrap">
+                                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-navy text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider whitespace-nowrap shadow-md">
                                     ⭐ {tier.badge}
                                 </div>
                             )}
 
                             <div className="mb-8">
-                                <div className={`text-xs font-bold uppercase tracking-widest mb-1 ${tier.highlight ? "text-emerald-400" : "text-navy/40"}`}>
+                                <div className={`text-xs font-bold uppercase tracking-widest mb-3 ${tier.theme === "premium" ? "text-emerald-600" : "text-navy/40"}`}>
                                     {tier.tagline}
                                 </div>
-                                <h2 className="text-2xl font-bold mb-5">{tier.name}</h2>
+                                <h2 className="text-2xl font-bold mb-4">{tier.name}</h2>
                                 <div className="flex items-baseline gap-1">
-                                    <span className="text-5xl font-bold">{tier.price}</span>
-                                    <span className={`text-sm ${tier.highlight ? "text-white/60" : "text-navy/40"}`}>{tier.priceSub}</span>
+                                    <span className="text-5xl font-black tracking-tight">{tier.price}</span>
+                                    <span className="text-base text-navy/50 font-medium">{tier.priceSub}</span>
                                 </div>
-                                {"annualNote" in tier && (
-                                    <div className={`text-xs mt-2 ${tier.highlight ? "text-emerald-400" : "text-emerald-600"}`}>
-                                        {(tier as typeof tiers[1]).annualNote}
-                                    </div>
-                                )}
                             </div>
 
                             {/* Features */}
-                            <ul className="space-y-3 mb-8 flex-1">
+                            <ul className="space-y-4 mb-10 flex-1">
                                 {tier.features.map((f, i) => (
-                                    <li key={i} className={`flex items-center justify-between text-sm gap-3 ${tier.highlight ? "text-white/80" : "text-navy/70"}`}>
-                                        <span>{f.label}</span>
-                                        <span className="flex-shrink-0">
+                                    <li key={i} className={`flex items-start text-sm gap-3 ${f.value === false ? "text-navy/40" : "text-navy/80"}`}>
+                                        <span className="flex-shrink-0 mt-0.5">
                                             {f.value === true ? (
-                                                <CheckCircle2 className={`w-4 h-4 ${tier.highlight ? "text-emerald-400" : "text-emerald-500"}`} />
+                                                <CheckCircle2 className={`w-4 h-4 ${tier.theme === "premium" ? "text-emerald-500" : "text-emerald-400"}`} />
                                             ) : f.value === false ? (
-                                                <XCircle className={`w-4 h-4 ${tier.highlight ? "text-white/20" : "text-neutral-300"}`} />
+                                                <span className="w-4 h-4 flex items-center justify-center text-neutral-300">—</span>
                                             ) : (
-                                                <span className={`font-semibold text-xs ${tier.highlight ? "text-emerald-300" : "text-navy"}`}>{f.value}</span>
+                                                <span className="font-semibold text-xs text-navy bg-navy/5 px-2 py-0.5 rounded">{f.value}</span>
                                             )}
                                         </span>
+                                        <span className={f.value === false ? "line-through" : "font-medium leading-tight"}>{f.label}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -205,9 +192,9 @@ export default function PricingPage() {
                             {tier.ctaHref ? (
                                 <Link href={tier.ctaHref}>
                                     <button
-                                        className={`w-full py-3.5 rounded-full font-bold text-sm transition-all ${tier.highlight
-                                            ? "bg-white text-navy hover:bg-emerald-50"
-                                            : "bg-navy text-white hover:bg-emerald-700"
+                                        className={`w-full py-4 rounded-full font-bold text-sm transition-all border-2 ${tier.theme === "premium"
+                                                ? "bg-navy text-white border-navy hover:bg-navy-light"
+                                                : "bg-transparent text-navy border-neutral-200 hover:border-navy hover:bg-neutral-50"
                                             }`}
                                     >
                                         {tier.cta} <ArrowRight className="inline w-4 h-4 ml-1" />
@@ -215,11 +202,11 @@ export default function PricingPage() {
                                 </Link>
                             ) : (
                                 <button
-                                    onClick={handleUpgrade}
+                                    onClick={() => handleUpgrade(tier.priceId)}
                                     disabled={!paddle}
-                                    className={`w-full py-3.5 rounded-full font-bold text-sm transition-all ${tier.highlight
-                                        ? "bg-white text-navy hover:bg-emerald-50"
-                                        : "bg-navy text-white hover:bg-emerald-700"
+                                    className={`w-full py-4 rounded-full font-bold text-sm transition-all border-2 ${tier.theme === "premium"
+                                            ? "bg-navy text-white border-navy hover:bg-navy-light"
+                                            : "bg-white text-navy border-neutral-200 hover:border-navy hover:bg-neutral-50 shadow-sm"
                                         } disabled:opacity-50`}
                                 >
                                     {!paddle ? "Loading..." : `${tier.cta} →`}
