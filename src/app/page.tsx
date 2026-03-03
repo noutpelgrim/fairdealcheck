@@ -34,27 +34,34 @@ export default function Home() {
       <main>
         {/* Hero Section */}
         <section className="pt-20 sm:pt-32 pb-16 sm:pb-20 px-6 max-w-5xl mx-auto text-center">
-          {/* Authority Eyebrow */}
-          <div className="inline-flex items-center space-x-2 text-navy/40 bg-neutral-50 border border-neutral-100 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-8">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Independent Pricing Audit Standard</span>
-          </div>
-
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-navy mb-6 leading-[1.1]">
-            Don&apos;t Overpay on Your Next Big Repair Quote.
+            Stop Overpaying for Service Work.
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-navy/60 max-w-2xl mx-auto mb-10 leading-relaxed">
-            FairDealCheck eliminates opaque service pricing by auditing your quotes against independent market benchmarks, saving users an average of $340 per negotiation with expert-grade transparency.
+            We audit your repair and service quotes against 84,000 real-world distributor catalogs to expose hidden markups.
           </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 text-sm font-medium text-navy/70">
+            <div className="flex items-center gap-2">
+              <span className="text-emerald-500">✓</span> Upload any quote in seconds
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-emerald-500">✓</span> See exact wholesale parts pricing
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-emerald-500">✓</span> Get standard local labor rates
+            </div>
+          </div>
+
           <div className="flex flex-col items-center gap-4">
             <Link href="/analyze">
               <Button size="lg" className="h-14 w-full sm:w-auto px-10 rounded-full bg-navy text-white hover:bg-navy-light shadow-2xl shadow-navy/20 transition-all font-bold text-lg">
-                Audit My Quote — It&apos;s Free
+                Audit My Quote
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
-            <p className="text-xs font-bold text-emerald-600 uppercase tracking-tighter">
-              Audit before you pay • 100% Independent
+            <p className="text-[13px] font-medium text-navy/50">
+              100% independent. Zero contractor kickbacks.
             </p>
           </div>
 
@@ -98,48 +105,42 @@ export default function Home() {
         {/* How It Works Section */}
         <section className="pb-16 sm:pb-24 px-6 max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-              The Audit Process
-            </div>
-            <h2 className="text-4xl font-bold text-navy tracking-tight mb-3">
-              The 60-Second Pricing Audit.
+            <h2 className="text-4xl sm:text-5xl font-bold text-navy tracking-tight mb-4">
+              Hard Data. Not Guesses.
             </h2>
-            <p className="text-navy/60 max-w-md mx-auto">
-              Neutral, data-backed verification of any service quote &mdash; powered by the FairDeal Independent Standard.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Step 1 */}
             <div className="relative flex flex-col items-start p-8 bg-neutral-50 rounded-3xl border border-neutral-100">
-              <div className="w-12 h-12 rounded-2xl bg-navy text-white flex items-center justify-center text-lg font-bold mb-6">
+              <div className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-bold mb-6">
                 1
               </div>
-              <h3 className="text-xl font-bold text-navy mb-3">Upload Your Quote</h3>
+              <h3 className="text-lg font-bold text-navy mb-2">Upload the quote.</h3>
               <p className="text-navy/60 leading-relaxed text-sm">
-                Paste or upload any service quote &mdash; auto repair, plumber, contractor, dentist. We support all major service categories and most document formats.
+                Drop your PDF or image directly into the analyzer.
               </p>
             </div>
 
             {/* Step 2 */}
             <div className="relative flex flex-col items-start p-8 bg-neutral-50 rounded-3xl border border-neutral-100">
-              <div className="w-12 h-12 rounded-2xl bg-navy text-white flex items-center justify-center text-lg font-bold mb-6">
+              <div className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-bold mb-6">
                 2
               </div>
-              <h3 className="text-xl font-bold text-navy mb-3">Generate Audit Report</h3>
+              <h3 className="text-lg font-bold text-navy mb-2">Get your score.</h3>
               <p className="text-navy/60 leading-relaxed text-sm">
-                We benchmark your quote against thousands of verified transactions in your ZIP code. Receive a neutral 0&ndash;100 score and a line-item pricing audit.
+                We check every line item against regional pricing data.
               </p>
             </div>
 
             {/* Step 3 */}
-            <div className="relative flex flex-col items-start p-8 bg-emerald-50 rounded-3xl border border-emerald-100">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-lg font-bold mb-6">
+            <div className="relative flex flex-col items-start p-8 bg-neutral-50 rounded-3xl border border-neutral-100">
+              <div className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-bold mb-6">
                 3
               </div>
-              <h3 className="text-xl font-bold text-navy mb-3">Execute Strategy</h3>
+              <h3 className="text-lg font-bold text-navy mb-2">Use the script.</h3>
               <p className="text-navy/60 leading-relaxed text-sm">
-                Use the standard. We generate expert negotiation scripts tailored to your audit results, giving you the leverage to align your quote with market reality.
+                We generate the exact words you need to negotiate.
               </p>
             </div>
           </div>
@@ -148,16 +149,19 @@ export default function Home() {
 
 
         {/* Mid-page CTA to capture intent */}
-        <div className="py-20 px-6 text-center max-w-xl mx-auto">
+        <div className="py-20 px-6 text-center max-w-xl mx-auto border-t border-neutral-100">
+          <h2 className="text-3xl font-bold text-navy mb-3">
+            Walk In With Leverage.
+          </h2>
+          <p className="text-navy/60 mb-8">
+            Never second-guess an invoice again.
+          </p>
           <Link href="/analyze">
             <Button className="h-14 w-full sm:w-auto px-10 rounded-full bg-navy text-white hover:bg-navy-light shadow-xl shadow-navy/10 transition-all font-bold text-lg">
-              Audit My Quote &mdash; It&apos;s Free
+              Get My Fairness Score
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </Link>
-          <p className="text-sm text-navy/40 mt-4 font-medium italic">
-            First analysis is 100% free. No credit card required.
-          </p>
         </div>
 
         {/* Testimonials */}

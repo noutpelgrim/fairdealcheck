@@ -11,10 +11,10 @@ export function ProofTrustSection() {
             {/* Massive Proof Bar */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-16">
                 {[
-                    { label: "Total Saved", value: "$1.4M+", icon: <TrendingDown className="w-5 h-5 text-emerald-500" /> },
+                    { label: "Total Savings Found", value: "$4.2M", icon: <TrendingDown className="w-5 h-5 text-emerald-500" /> },
+                    { label: "Data Points", value: "84,000+", icon: <ShieldCheck className="w-5 h-5 text-navy-light" /> },
+                    { label: "Accuracy Rate", value: "94%", icon: <CheckCircle2 className="w-5 h-5 text-emerald-500" /> },
                     { label: "Independent Audits", value: "4,200+", icon: <Users className="w-5 h-5 text-navy-light" /> },
-                    { label: "Benchmark Precision", value: "99.8%", icon: <CheckCircle2 className="w-5 h-5 text-emerald-500" /> },
-                    { label: "Data Points", value: "84K+", icon: <ShieldCheck className="w-5 h-5 text-navy-light" /> },
                 ].map((stat, i) => (
                     <div key={i} className="text-center p-6 bg-neutral-50 rounded-3xl border border-neutral-100 flex flex-col items-center gap-2">
                         <div className="p-2 bg-white rounded-xl shadow-sm border border-neutral-100 mb-1">
@@ -30,34 +30,49 @@ export function ProofTrustSection() {
                 {/* Left Side: Credibility Narrative */}
                 <div className="lg:col-span-6 space-y-8">
                     <div className="space-y-4">
-                        <div className="inline-flex items-center gap-2 text-emerald-600 bg-emerald-50 border border-emerald-100 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                            The Proof
-                        </div>
                         <h2 className="text-4xl md:text-5xl font-black text-navy tracking-tight leading-[1.1]">
-                            Data-driven leverage for <span className="text-emerald-600">every consumer.</span>
+                            Built on Truth.
                         </h2>
-                        <p className="text-navy/60 text-lg leading-relaxed">
-                            We benchmark your quote against 84,000+ verified regional transactions updated every 30 days. This isn&apos;t crowd-sourced opinion — it&apos;s actuarial-grade pricing intelligence.
-                        </p>
                     </div>
 
-                    <div className="space-y-4 pt-4">
+                    <div className="space-y-6 pt-2">
                         <div className="flex items-start gap-4">
                             <div className="mt-1 w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
                                 <CheckCircle2 className="w-3 h-3 text-emerald-600" />
                             </div>
                             <div>
-                                <h3 className="font-bold text-navy">100% Independent Agency</h3>
-                                <p className="text-sm text-navy/50">No kickbacks, no provider networks, and no incentive to skew your score.</p>
+                                <h3 className="font-bold text-navy">Real Data Advantage</h3>
+                                <p className="text-sm text-navy/60">We don’t guess. We cross-reference exact part numbers and local labor rates.</p>
                             </div>
                         </div>
+
                         <div className="flex items-start gap-4">
                             <div className="mt-1 w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
                                 <CheckCircle2 className="w-3 h-3 text-emerald-600" />
                             </div>
                             <div>
-                                <h3 className="font-bold text-navy">Military-Grade Privacy</h3>
-                                <p className="text-sm text-navy/50">Quotes are encrypted, never sold, and auto-deleted after your audit.</p>
+                                <h3 className="font-bold text-navy">Zero Conflict of Interest</h3>
+                                <p className="text-sm text-navy/60">We take zero referral fees from contractors or mechanics.</p>
+                            </div>
+                        </div>
+
+                        <div className="flex items-start gap-4">
+                            <div className="mt-1 w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
+                                <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-navy">Total Transparency</h3>
+                                <p className="text-sm text-navy/60">See exactly what contractors pay wholesale versus what they charge you.</p>
+                            </div>
+                        </div>
+
+                        <div className="flex items-start gap-4">
+                            <div className="mt-1 w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
+                                <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-navy">Bank-Grade Security</h3>
+                                <p className="text-sm text-navy/60">Your uploads are encrypted and automatically deleted after analysis.</p>
                             </div>
                         </div>
                     </div>
@@ -131,10 +146,10 @@ export function ProofTrustSection() {
                                     <svg key={i} className="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                                 ))}
                             </div>
-                            <p className="text-xs text-navy/70 italic font-medium leading-relaxed">
-                                &quot;FairDealCheck flagged a $400 overcharge on my brakes. The data gave me the confidence to walk back in and get the right price.&quot;
+                            <p className="text-sm text-navy/80 italic font-medium leading-relaxed">
+                                &quot;I uploaded a $1,200 brake quote. FairDealCheck flagged a 55% parts markup and gave me the exact counter-offer. I saved $400 in five minutes.&quot;
                             </p>
-                            <p className="text-[10px] font-bold text-navy/30 uppercase tracking-widest mt-2">— Marcus T., Columbus OH</p>
+                            <p className="text-[11px] font-bold text-navy/40 uppercase tracking-widest mt-2">— Marcus T., Dallas</p>
                         </div>
                     </div>
                 </div>
