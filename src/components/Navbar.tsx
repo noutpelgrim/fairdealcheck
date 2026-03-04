@@ -4,11 +4,13 @@ import React from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
+import { UserButton, useAuth } from "@clerk/nextjs";
 import { Logo } from "@/components/Logo";
 
 export function Navbar() {
     const router = useRouter();
     const pathname = usePathname();
+    const { isSignedIn } = useAuth();
 
     const isHomepage = pathname === "/";
 
@@ -42,21 +44,25 @@ export function Navbar() {
                             Pricing
                         </span>
                     </Link>
-                    <Link href="/blog" className="hidden lg:block">
-                        <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">
-                            Blog
-                        </span>
-                    </Link>
-                    <Link href="/methodology" className="hidden lg:block">
-                        <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">
-                            Methodology
-                        </span>
-                    </Link>
-                    <Link href="/transparency" className="hidden lg:block">
-                        <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">
-                            Transparency
-                        </span>
-                    </Link>
+
+                    {/* Auth State */}
+                    {isSignedIn ? (
+                        <>
+                            <Link href="/dashboard" className="hidden sm:block ml-2">
+                                <span className="text-sm font-medium text-navy hover:text-emerald-600 transition-colors">
+                                    Dashboard
+                                </span>
+                            </Link>
+                            <UserButton afterSignOutUrl="/" appearance={{ elements: { userButtonAvatarBox: "w-8 h-8" } }} />
+                        </>
+                    ) : (
+                        <Link href="/sign-in" className="hidden sm:block">
+                            <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">
+                                Sign In
+                            </span>
+                        </Link>
+                    )}
+
                     <Link href="/analyze" className="sm:ml-2">
                         <span className="text-sm font-bold text-navy hover:text-emerald-600 transition-colors bg-white sm:bg-transparent border border-neutral-100 sm:border-none px-3 py-1.5 rounded-full sm:p-0">
                             Audit a Quote
