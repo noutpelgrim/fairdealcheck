@@ -108,9 +108,9 @@ export function QuoteUploader({ onSuccess }: { onSuccess?: (analysisId: string) 
                 type="button"
                 onClick={handleTriggerClick}
                 disabled={isUploading}
-                className={`relative w-full flex flex-col items-center justify-center p-10 border-2 border-dashed rounded-[32px] transition-all duration-300 
-                    ${isDragging ? "border-emerald-500 bg-emerald-50" : "border-neutral-200 bg-neutral-50 hover:border-emerald-400 hover:bg-white hover:shadow-xl hover:shadow-emerald-900/5"}
-                    ${isUploading ? "opacity-75 cursor-not-allowed" : "cursor-pointer"}
+                className={`relative w-full flex flex-col items-center justify-center p-12 border transition-all duration-300 rounded-xl
+                    ${isDragging ? "border-emerald-500 bg-emerald-50" : "border-slate-300 bg-white hover:border-slate-400 border-dashed"}
+                    ${isUploading ? "opacity-100 cursor-not-allowed border-slate-200 border-solid" : "cursor-pointer"}
                 `}
                 onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
                 onDragLeave={() => setIsDragging(false)}
@@ -123,25 +123,18 @@ export function QuoteUploader({ onSuccess }: { onSuccess?: (analysisId: string) 
                 }}
             >
                 {isUploading ? (
-                    <div className="flex flex-col items-center text-emerald-600">
-                        <Loader2 className="w-12 h-12 animate-spin mb-4" />
-                        <span className="font-bold text-xl">Analyzing Document...</span>
-                        <span className="text-sm opacity-70 mt-2 font-medium">Extracting data and checking market rates</span>
+                    <div className="flex flex-col items-center text-slate-900 w-full max-w-sm">
+                        <div className="w-full h-1 bg-slate-100 rounded-full overflow-hidden mb-5 relative">
+                            <div className="absolute top-0 left-0 h-full w-1/2 bg-slate-900 rounded-full animate-pulse" style={{ animationDuration: '1.2s' }} />
+                        </div>
+                        <span className="text-[15px] font-medium tracking-tight mb-1.5">Parsing document structure...</span>
+                        <span className="text-[11px] uppercase tracking-widest text-slate-500">Cross-referencing 84,000 distributor catalogs</span>
                     </div>
                 ) : (
-                    <div className="flex flex-col items-center text-navy">
-                        <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-5 rotate-3 group-hover:rotate-0 transition-transform">
-                            <UploadCloud className="w-8 h-8" />
-                        </div>
-                        <span className="font-bold text-2xl mb-2 tracking-tight">Upload Your Quote</span>
-                        <span className="text-navy/50 font-medium">Click to browse or drag and drop</span>
-                        <div className="flex items-center gap-3 mt-4 text-[10px] font-bold uppercase tracking-widest text-navy/30">
-                            <span>PDF</span>
-                            <span className="w-1 h-1 rounded-full bg-navy/20"></span>
-                            <span>JPG</span>
-                            <span className="w-1 h-1 rounded-full bg-navy/20"></span>
-                            <span>PNG</span>
-                        </div>
+                    <div className="flex flex-col items-center text-slate-900">
+                        <UploadCloud className="w-5 h-5 text-slate-400 mb-4" strokeWidth={1.5} />
+                        <span className="text-[15px] font-medium tracking-tight mb-2">Select document for analysis</span>
+                        <span className="text-[13px] text-slate-500">Secure 256-bit SSL connection. PDF, JPG, or PNG up to 10MB.</span>
                     </div>
                 )}
             </button>

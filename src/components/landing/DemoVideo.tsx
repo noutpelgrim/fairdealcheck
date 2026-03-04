@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { Server } from "lucide-react";
 
 const SCENES = [
   { id: "s1", label: "The Hook", start: 0, end: 5 },
@@ -122,14 +123,14 @@ export function DemoVideo() {
   return (
     <section className="pb-6 max-w-5xl mx-auto">
       {/* Header */}
-      <div className="text-center mb-5">
-        <div className="inline-flex items-center gap-2 text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+      <div className="text-center mb-6">
+        <div className="inline-flex items-center gap-2 text-slate-500 bg-slate-50 border border-slate-200 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4">
           See It In Action
         </div>
-        <h2 className="text-3xl font-bold text-navy tracking-tight mb-1">
+        <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-2">
           Hard data. Not an AI gimmick.
         </h2>
-        <p className="text-navy/50 text-sm font-semibold">
+        <p className="text-slate-500 text-sm font-medium">
           ▶ Watch Demo — See Real Audit in 36 Seconds
         </p>
       </div>
@@ -177,63 +178,65 @@ export function DemoVideo() {
           {/* ── SCENE 1: HOOK ── */}
           <div className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-500 ${is(0) ? "opacity-100" : "opacity-0"}`}>
             <div className="relative mb-4 sm:mb-6" style={{ transform: "rotate(-1.5deg)" }}>
-              <div className="bg-white border border-neutral-200 rounded-2xl shadow-lg p-4 sm:p-6 w-64 sm:w-72">
-                <p className="text-[10px] font-bold tracking-widest uppercase text-neutral-400 mb-3">Repair Estimate #4821</p>
+              <div className="bg-white border border-slate-200 rounded-xl shadow-sm p-4 sm:p-6 w-64 sm:w-72">
+                <p className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-3">Repair Estimate #4821</p>
                 {[["Brake Pads & Rotors", "$780"], ["Labor (3.5 hrs)", "$560"]].map(([l, v]) => (
-                  <div key={l} className="flex justify-between text-[11px] sm:text-xs py-1.5 border-b border-neutral-50 text-neutral-600"><span>{l}</span><span>{v}</span></div>
+                  <div key={l} className="flex justify-between text-[11px] sm:text-xs py-1.5 border-b border-slate-50 text-slate-600"><span>{l}</span><span>{v}</span></div>
                 ))}
-                <div className="flex justify-between text-sm sm:text-base font-black pt-3 text-red-600"><span>TOTAL DUE</span><span>$1,340</span></div>
+                <div className="flex justify-between text-sm sm:text-base font-semibold pt-3 text-red-500"><span>TOTAL DUE</span><span>$1,340</span></div>
               </div>
-              <div className={`absolute top-3 right-3 border-2 border-red-500 text-red-500 text-[9px] font-black px-2 py-0.5 rounded rotate-12 bg-white tracking-widest transition-opacity duration-500 ${is(0) ? "opacity-100 delay-500" : "opacity-0"}`}>FAIR?</div>
+              <div className={`absolute top-3 right-3 border border-red-200 text-red-500 text-[9px] font-bold px-2 py-0.5 rounded rotate-12 bg-white tracking-widest transition-opacity duration-500 ${is(0) ? "opacity-100 delay-500" : "opacity-0"}`}>FAIR?</div>
             </div>
             <div className={`text-center px-4 transition-all duration-500 ${is(0) ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-3"}`}>
-              <p className="text-lg sm:text-xl font-black text-navy leading-tight mb-1">Think they are overcharging you?<br /><span className="text-red-500">They probably are.</span></p>
-              <p className="text-[11px] sm:text-xs text-neutral-500 max-w-xs mx-auto">And an AI chatbot can&apos;t prove it. <strong className="text-navy">Data can.</strong></p>
+              <p className="text-lg sm:text-xl font-semibold tracking-tight text-slate-900 leading-tight mb-1">Think they are overcharging you?<br /><span className="text-red-500">They probably are.</span></p>
+              <p className="text-[11px] sm:text-xs text-slate-500 max-w-xs mx-auto">And an AI chatbot can&apos;t prove it. <strong className="text-slate-900 font-medium">Data can.</strong></p>
             </div>
           </div>
 
           {/* ── SCENE 2: UPLOAD & MECHANISM ── */}
           <div className={`absolute inset-0 flex flex-col items-center justify-center p-4 transition-opacity duration-500 ${is(1) ? "opacity-100" : "opacity-0"}`}>
-            <div className="bg-white border border-neutral-200 rounded-2xl shadow p-4 sm:p-5 w-full max-w-[460px]">
+            <div className="bg-white border border-slate-200 rounded-xl shadow-sm p-4 sm:p-5 w-full max-w-[460px]">
               <div className="flex items-center gap-2 mb-3">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-400" /><span className="w-2.5 h-2.5 rounded-full bg-yellow-400" /><span className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                <span className="flex-1 bg-neutral-100 rounded text-[10px] text-neutral-400 px-2 py-1 ml-1 overflow-hidden whitespace-nowrap text-ellipsis max-w-[150px] sm:max-w-none">fairdealcheck.com/analyze</span>
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-200" />
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-200" />
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-200" />
+                <span className="flex-1 bg-slate-50 rounded border border-slate-100 text-[10px] text-slate-400 px-2 py-1 ml-1 overflow-hidden whitespace-nowrap text-ellipsis max-w-[150px] sm:max-w-none">fairdealcheck.com/analyze</span>
               </div>
-              <div className={`border-2 border-dashed rounded-xl p-5 sm:p-7 text-center transition-all duration-500 ${is(1) ? "border-emerald-400 bg-emerald-50/40" : "border-neutral-200"}`}>
-                <div className="text-xl sm:text-2xl mb-1">🛡️</div>
-                <p className="text-xs sm:text-sm font-bold text-navy">Proprietary Database Analysis</p>
-                <p className="text-[10px] sm:text-xs text-neutral-400 mt-1">Cross-referencing 84,000 distributor catalogs...</p>
-                <div className={`mt-3 inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-lg transition-opacity duration-500 ${is(1) ? "opacity-100 delay-700" : "opacity-0"}`}>
-                  📍 Matching Local ZIP Code Benchmarks...
+              <div className={`border rounded-xl p-5 sm:p-7 text-center transition-all duration-500 ${is(1) ? "border-emerald-200 bg-emerald-50/40" : "border-slate-100"}`}>
+                <div className="text-xl sm:text-2xl mb-1 flex justify-center"><Server className="w-6 h-6 text-emerald-500" /></div>
+                <p className="text-xs sm:text-sm font-semibold tracking-tight text-slate-900 mt-2">Proprietary Database Analysis</p>
+                <p className="text-[10px] sm:text-xs text-slate-500 mt-1">Cross-referencing 84,000 distributor catalogs...</p>
+                <div className={`mt-4 inline-flex items-center gap-2 bg-slate-50 border border-slate-200 text-slate-600 text-[10px] tracking-widest uppercase font-semibold px-3 py-1.5 rounded-md transition-opacity duration-500 ${is(1) ? "opacity-100 delay-700" : "opacity-0"}`}>
+                  Matching Local ZIP Code...
                 </div>
-                <div className={`mt-2 h-1 bg-neutral-100 rounded-full overflow-hidden transition-opacity duration-300 ${is(1) ? "opacity-100 delay-[1100ms]" : "opacity-0"}`}>
+                <div className={`mt-3 h-1 bg-slate-100 rounded-full overflow-hidden transition-opacity duration-300 ${is(1) ? "opacity-100 delay-[1100ms]" : "opacity-0"}`}>
                   <div className="h-full bg-emerald-500 rounded-full" style={{ width: is(1) ? "100%" : "0%", transition: is(1) ? "width 1.4s ease 1.2s" : "none" }} />
                 </div>
               </div>
             </div>
-            <p className={`text-xs text-neutral-500 mt-4 text-center max-w-sm transition-all duration-500 delay-300 ${is(1) ? "opacity-100" : "opacity-0"}`}>We don&apos;t use AI to guess. <strong className="text-navy">We use real-world localized pricing data.</strong></p>
+            <p className={`text-[11px] sm:text-xs text-slate-500 mt-4 text-center max-w-sm transition-all duration-500 delay-300 ${is(1) ? "opacity-100" : "opacity-0"}`}>We don&apos;t use AI to guess. <strong className="text-slate-900 font-medium">We use real-world localized pricing data.</strong></p>
           </div>
 
           {/* ── SCENE 3: THE PROOF ── */}
           <div className={`absolute inset-0 flex items-center justify-center p-4 transition-opacity duration-500 ${is(2) ? "opacity-100" : "opacity-0"}`}>
-            <div className="bg-white border border-neutral-200 rounded-2xl shadow-lg p-5 w-full max-w-[520px]">
-              <p className="text-[10px] font-bold tracking-widest uppercase text-navy mb-1">Marcus — Dallas, TX</p>
-              <p className="text-[9px] font-bold tracking-widest uppercase text-neutral-400 mb-3 pb-2 border-b border-neutral-100">$1,340 Brake Quote Analyzed</p>
+            <div className="bg-white border border-slate-200 rounded-xl shadow-sm p-5 w-full max-w-[520px]">
+              <p className="text-[10px] font-bold tracking-widest uppercase text-slate-900 mb-1">Marcus — Dallas, TX</p>
+              <p className="text-[9px] font-bold tracking-widest uppercase text-slate-400 mb-3 pb-2 border-b border-slate-100">$1,340 Brake Quote Analyzed</p>
               {[
-                { label: "Brake Pads & Rotors", charged: "$780", fair: "$350–$420", tag: "55% MARKUP", over: true, dl: "delay-[200ms]" },
-                { label: "Labor (3.5 hrs)", charged: "$560", fair: "$400–$480", tag: "+$80 Over", over: true, dl: "delay-[400ms]" },
+                { label: "Brake Pads & Rotors", charged: "$780", fair: "$350–$420", tag: "55% VARIANCE", over: true, dl: "delay-[200ms]" },
+                { label: "Labor (3.5 hrs)", charged: "$560", fair: "$400–$480", tag: "+$80 VARIANCE", over: true, dl: "delay-[400ms]" },
               ].map((r) => (
-                <div key={r.label} className={`grid grid-cols-[1fr_70px_90px_76px] gap-2 items-center py-2 border-b border-neutral-50 text-xs transition-all duration-400 ${is(2) ? `opacity-100 translate-x-0 ${r.dl}` : "opacity-0 -translate-x-3"}`}>
-                  <span className="font-semibold text-navy">{r.label}</span>
-                  <span className="font-bold text-red-500">{r.charged}</span>
-                  <span className="text-neutral-400">{r.fair}</span>
-                  <span className={`text-center px-1.5 py-0.5 rounded-full font-bold text-[10px] ${r.over ? "bg-red-50 text-red-500 border border-red-100" : "bg-amber-50 text-amber-600 border border-amber-100"}`}>{r.tag}</span>
+                <div key={r.label} className={`grid grid-cols-[1fr_70px_90px_86px] gap-2 items-center py-2 border-b border-slate-50 text-xs transition-all duration-400 ${is(2) ? `opacity-100 translate-x-0 ${r.dl}` : "opacity-0 -translate-x-3"}`}>
+                  <span className="font-medium text-slate-900">{r.label}</span>
+                  <span className="font-semibold text-red-500">{r.charged}</span>
+                  <span className="text-slate-400">{r.fair}</span>
+                  <span className={`text-center px-1.5 py-0.5 rounded-full font-bold text-[9px] ${r.over ? "bg-red-50 text-red-600 border border-red-100" : "bg-slate-50 text-slate-600 border border-slate-200"}`}>{r.tag}</span>
                 </div>
               ))}
               <div className={`flex justify-between items-end pt-3 transition-opacity duration-500 ${is(2) ? "opacity-100 delay-[900ms]" : "opacity-0"}`}>
                 <div>
-                  <p className="text-[9px] text-neutral-400 mb-0.5">Potential Savings Identified</p>
-                  <p className="text-xl font-black text-emerald-600">$400 Overcharged</p>
+                  <p className="text-[9px] font-bold tracking-widest uppercase text-slate-400 mb-0.5">Potential Savings Identified</p>
+                  <p className="text-xl font-semibold tracking-tight text-emerald-600">$400 Variance</p>
                 </div>
               </div>
             </div>
@@ -241,49 +244,39 @@ export function DemoVideo() {
 
           {/* ── SCENE 4: SCRIPT ── */}
           <div className={`absolute inset-0 flex items-center justify-center p-4 transition-opacity duration-500 ${is(3) ? "opacity-100" : "opacity-0"}`}>
-            <div className="bg-white border border-neutral-200 rounded-2xl shadow-lg p-5 sm:p-6 w-full max-w-[500px]">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-emerald-50 border border-emerald-100 rounded-lg flex items-center justify-center text-xs sm:text-sm">💬</div>
-                <p className="font-bold text-xs sm:text-sm text-navy">Then we generate <span className="text-emerald-600">the exact counter-offer.</span></p>
+            <div className="bg-white border border-slate-200 rounded-xl shadow-sm p-5 sm:p-6 w-full max-w-[500px]">
+              <div className="flex items-center gap-3 mb-4 border-b border-slate-100 pb-3">
+                <p className="font-semibold tracking-tight text-xs sm:text-sm text-slate-900">Data-Backed Counter-Offer Generated</p>
               </div>
-              <div className={`bg-neutral-50 border-l-4 border-l-emerald-500 rounded-r-xl p-3 sm:p-4 text-[11px] sm:text-sm text-neutral-600 italic leading-relaxed transition-all duration-500 ${is(3) ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-2"}`}>
-                &ldquo;I looked at regional pricing for Dallas. The parts are coming in 55% over retail at{" "}
-                <strong className="text-navy not-italic">$780.</strong> I would like to move forward, but can we use OEM-equivalent parts at standard retail pricing, closer to $380?&rdquo;
-              </div>
-              <div className={`flex flex-wrap gap-2 mt-3 transition-opacity duration-500 ${is(3) ? "opacity-100 delay-[700ms]" : "opacity-0"}`}>
-                <span className="text-[9px] sm:text-[10px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-md">Marcus saved $400 in 5 minutes</span>
+              <div className={`bg-slate-50 border-l-2 border-l-slate-300 rounded-r p-3 sm:p-4 text-[11px] sm:text-sm text-slate-600 leading-relaxed transition-all duration-500 ${is(3) ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-2"}`}>
+                "I looked at regional pricing for Dallas. The parts are coming in 55% over retail at{" "}
+                <strong className="text-slate-900 font-medium">$780.</strong> I would like to move forward, but can we use OEM-equivalent parts at standard retail pricing, closer to $380?"
               </div>
             </div>
           </div>
 
           {/* ── SCENE 5: TRANSPARENCY ── */}
-          <div className={`absolute inset-0 flex flex-col items-center justify-center p-4 transition-opacity duration-500 ${is(4) ? "opacity-100" : "opacity-0"}`}>
-            <div className={`bg-navy border border-navy shadow-lg p-6 sm:p-8 rounded-full flex items-center justify-center w-24 h-24 sm:w-32 sm:h-32 mb-4 sm:mb-6 transition-all duration-500 ${is(4) ? "scale-100 opacity-100 delay-200" : "scale-90 opacity-0"}`}>
-              <svg width="40" height="40" className="sm:w-[48px] sm:h-[48px]" viewBox="0 0 28 28" fill="none">
-                <path d="M14 2L4 6.5V13.5C4 19.025 8.4 24.225 14 25.5C19.6 24.225 24 19.025 24 13.5V6.5L14 2Z" fill="#10b981" />
-                <path d="M10 14L13 17L18 11" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
-            <h3 className={`text-xl sm:text-2xl font-black text-navy text-center leading-tight mb-2 transition-all duration-500 ${is(4) ? "opacity-100 translate-y-0 delay-[400ms]" : "opacity-0 translate-y-3"}`}>
+          <div className={`absolute inset-0 flex flex-col items-center justify-center p-4 transition-opacity duration-500 ${is(4) ? "opacity-100 bg-slate-50" : "opacity-0"}`}>
+            <h3 className={`text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 text-center leading-tight mb-4 transition-all duration-500 ${is(4) ? "opacity-100 translate-y-0 delay-[400ms]" : "opacity-0 translate-y-3"}`}>
               100% Independent.
             </h3>
             <div className={`flex flex-col items-center gap-2 transition-opacity duration-500 ${is(4) ? "opacity-100 delay-[600ms]" : "opacity-0"}`}>
-              <span className="text-sm font-bold text-red-500 bg-red-50 px-3 py-1 rounded-full uppercase tracking-wider">Zero Contractor Kickbacks</span>
-              <span className="text-xs text-neutral-500 mt-2">We work only for your wallet.</span>
+              <span className="text-[10px] font-bold text-slate-500 bg-white border border-slate-200 px-4 py-1.5 rounded-full uppercase tracking-widest">Zero Contractor Kickbacks</span>
+              <span className="text-xs text-slate-500 mt-2 font-medium">We work strictly for your wallet.</span>
             </div>
           </div>
 
           {/* ── SCENE 6: CTA ── */}
-          <div className={`absolute inset-0 flex flex-col items-center justify-center gap-3 transition-opacity duration-500 ${is(5) ? "opacity-100 bg-navy" : "opacity-0"}`}>
-            <h3 className={`text-2xl sm:text-4xl font-black text-white text-center leading-tight transition-all duration-500 ${is(5) ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-3"}`}>
-              GET HARD DATA.<br /><span className="text-emerald-400">NOT GUESSES.</span>
+          <div className={`absolute inset-0 flex flex-col items-center justify-center gap-3 transition-opacity duration-500 ${is(5) ? "opacity-100 bg-white" : "opacity-0"}`}>
+            <h3 className={`text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900 text-center leading-tight transition-all duration-500 ${is(5) ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-3"}`}>
+              Get Hard Data.<br /><span className="text-slate-400">Not Guesses.</span>
             </h3>
-            <p className={`text-[11px] sm:text-sm text-white/60 text-center max-w-sm transition-opacity duration-500 ${is(5) ? "opacity-100 delay-[400ms]" : "opacity-0"}`}>
+            <p className={`text-[11px] sm:text-sm text-slate-500 text-center max-w-sm transition-opacity duration-500 ${is(5) ? "opacity-100 delay-[400ms]" : "opacity-0"}`}>
               Stop guessing. Don&apos;t pay that bill yet.
             </p>
             <div className={`mt-4 transition-all duration-400 ${is(5) ? "opacity-100 scale-100 delay-[600ms]" : "opacity-0 scale-95"}`}>
-              <a href="/analyze" className="inline-flex items-center gap-2 bg-emerald-500 text-navy font-black text-[11px] sm:text-sm px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:bg-emerald-400 transition-colors">
-                Audit My Quote In 60 Seconds →
+              <a href="/analyze" className="inline-flex items-center gap-2 bg-slate-900 text-white font-medium text-[11px] sm:text-sm px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-none hover:opacity-90 transition-opacity">
+                Audit My Quote In 60 Seconds
               </a>
             </div>
           </div>

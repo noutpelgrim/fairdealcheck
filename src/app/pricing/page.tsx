@@ -133,24 +133,24 @@ export default function PricingPage() {
             <main className="pt-32 pb-24 px-6">
                 {/* Header */}
                 <div className="text-center mb-16 max-w-3xl mx-auto">
-                    <h1 className="text-4xl md:text-5xl font-bold text-navy tracking-tight mb-4">
+                    <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-slate-900 mb-4">
                         The average FairDealCheck user saves $340 per audit. Choose your leverage.
                     </h1>
-                    <p className="text-lg text-navy/60">
+                    <p className="text-lg text-slate-500">
                         Stop overpaying for opaque services. Simple, transparent pricing for every tier.
                     </p>
                 </div>
 
                 {/* Pricing cards */}
-                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 items-end">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 items-end">
                     {tiers.map((tier) => (
                         <div
                             key={tier.id}
-                            className={`relative flex flex-col rounded-[32px] border p-8 ${tier.theme === "premium"
-                                    ? "bg-white text-navy border-navy shadow-2xl shadow-navy/10 md:-translate-y-4 z-10 lg:p-10"
-                                    : tier.theme === "solid"
-                                        ? "bg-white text-navy border-neutral-200 shadow-sm"
-                                        : "bg-neutral-50/50 text-navy border-neutral-200 border-dashed"
+                            className={`relative flex flex-col rounded-2xl border p-8 ${tier.theme === "premium"
+                                ? "bg-white text-slate-900 border-slate-300 shadow-md md:-translate-y-4 z-10 lg:p-10"
+                                : tier.theme === "solid"
+                                    ? "bg-white text-slate-900 border-slate-200 shadow-sm"
+                                    : "bg-slate-50 text-slate-900 border-slate-200 border-dashed"
                                 }`}
                         >
                             {tier.badge && (
@@ -160,27 +160,27 @@ export default function PricingPage() {
                             )}
 
                             <div className="mb-8">
-                                <div className={`text-xs font-bold uppercase tracking-widest mb-3 ${tier.theme === "premium" ? "text-emerald-600" : "text-navy/40"}`}>
+                                <div className={`text-[10px] font-bold uppercase tracking-widest mb-3 ${tier.theme === "premium" ? "text-emerald-600" : "text-slate-400"}`}>
                                     {tier.tagline}
                                 </div>
-                                <h2 className="text-2xl font-bold mb-4">{tier.name}</h2>
+                                <h2 className="text-2xl font-semibold tracking-tight mb-4">{tier.name}</h2>
                                 <div className="flex items-baseline gap-1">
-                                    <span className="text-5xl font-black tracking-tight">{tier.price}</span>
-                                    <span className="text-base text-navy/50 font-medium">{tier.priceSub}</span>
+                                    <span className="text-5xl font-semibold tracking-tight">{tier.price}</span>
+                                    <span className="text-base text-slate-500 font-medium">{tier.priceSub}</span>
                                 </div>
                             </div>
 
                             {/* Features */}
                             <ul className="space-y-4 mb-10 flex-1">
                                 {tier.features.map((f, i) => (
-                                    <li key={i} className={`flex items-start text-sm gap-3 ${f.value === false ? "text-navy/40" : "text-navy/80"}`}>
+                                    <li key={i} className={`flex items-start text-sm gap-3 ${f.value === false ? "text-slate-400" : "text-slate-600"}`}>
                                         <span className="flex-shrink-0 mt-0.5">
                                             {f.value === true ? (
                                                 <CheckCircle2 className={`w-4 h-4 ${tier.theme === "premium" ? "text-emerald-500" : "text-emerald-400"}`} />
                                             ) : f.value === false ? (
-                                                <span className="w-4 h-4 flex items-center justify-center text-neutral-300">—</span>
+                                                <span className="w-4 h-4 flex items-center justify-center text-slate-300">—</span>
                                             ) : (
-                                                <span className="font-semibold text-xs text-navy bg-navy/5 px-2 py-0.5 rounded">{f.value}</span>
+                                                <span className="font-medium text-xs text-slate-900 bg-slate-100 px-2 py-0.5 rounded">{f.value}</span>
                                             )}
                                         </span>
                                         <span className={f.value === false ? "line-through" : "font-medium leading-tight"}>{f.label}</span>
@@ -192,9 +192,9 @@ export default function PricingPage() {
                             {tier.ctaHref ? (
                                 <Link href={tier.ctaHref}>
                                     <button
-                                        className={`w-full py-4 rounded-full font-bold text-sm transition-all border-2 ${tier.theme === "premium"
-                                                ? "bg-navy text-white border-navy hover:bg-navy-light"
-                                                : "bg-transparent text-navy border-neutral-200 hover:border-navy hover:bg-neutral-50"
+                                        className={`w-full py-3.5 rounded-xl font-medium text-sm transition-all border ${tier.theme === "premium"
+                                            ? "bg-slate-900 text-white border-slate-900 hover:opacity-90"
+                                            : "bg-transparent text-slate-900 border-slate-200 hover:border-slate-300 hover:bg-slate-50"
                                             }`}
                                     >
                                         {tier.cta} <ArrowRight className="inline w-4 h-4 ml-1" />
@@ -204,9 +204,9 @@ export default function PricingPage() {
                                 <button
                                     onClick={() => handleUpgrade(tier.priceId)}
                                     disabled={!paddle}
-                                    className={`w-full py-4 rounded-full font-bold text-sm transition-all border-2 ${tier.theme === "premium"
-                                            ? "bg-navy text-white border-navy hover:bg-navy-light"
-                                            : "bg-white text-navy border-neutral-200 hover:border-navy hover:bg-neutral-50 shadow-sm"
+                                    className={`w-full py-3.5 rounded-xl font-medium text-sm transition-all border ${tier.theme === "premium"
+                                        ? "bg-slate-900 text-white border-slate-900 hover:opacity-90"
+                                        : "bg-white text-slate-900 border-slate-200 hover:border-slate-300 hover:bg-slate-50 shadow-sm"
                                         } disabled:opacity-50`}
                                 >
                                     {!paddle ? "Loading..." : `${tier.cta} →`}
@@ -244,27 +244,29 @@ export default function PricingPage() {
                 </div>
 
                 {/* FAQ */}
-                <div className="max-w-2xl mx-auto">
+                <div className="max-w-3xl mx-auto pt-20 border-t border-slate-100">
                     <div className="text-center mb-10">
-                        <h2 className="text-3xl font-bold text-navy">Common questions</h2>
+                        <h2 className="text-3xl font-semibold text-slate-900 tracking-tight">Common questions</h2>
                     </div>
-                    <div className="space-y-3">
+                    <div className="space-y-0">
                         {faqs.map((faq, i) => (
                             <div
                                 key={i}
-                                className={`rounded-3xl border transition-all overflow-hidden ${openFaq === i ? "border-navy/20 bg-white shadow-md shadow-navy/5" : "border-neutral-100 bg-neutral-50"}`}
+                                className={`border-b transition-all overflow-hidden ${openFaq === i ? "border-slate-200 bg-white" : "border-slate-100 bg-white"}`}
                             >
                                 <button
                                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                                    className="w-full text-left px-7 py-5 flex justify-between items-center"
+                                    className="w-full text-left py-6 flex justify-between items-center group"
                                 >
-                                    <span className="font-semibold text-navy">{faq.q}</span>
-                                    <span className={`text-navy/30 ml-4 flex-shrink-0 transition-transform duration-200 ${openFaq === i ? "rotate-45" : ""}`}>
-                                        ✕
+                                    <span className={`text-[15px] font-medium tracking-tight transition-colors ${openFaq === i ? "text-slate-900" : "text-slate-600 group-hover:text-slate-900"}`}>{faq.q}</span>
+                                    <span className={`transition-transform duration-200 ${openFaq === i ? "text-slate-900 rotate-45" : "text-slate-400 group-hover:text-slate-600"}`}>
+                                        +
                                     </span>
                                 </button>
                                 {openFaq === i && (
-                                    <div className="px-7 pb-6 text-navy/60 leading-relaxed text-sm">{faq.a}</div>
+                                    <div className="pb-6 text-slate-500 leading-relaxed text-[14px]">
+                                        {faq.a}
+                                    </div>
                                 )}
                             </div>
                         ))}

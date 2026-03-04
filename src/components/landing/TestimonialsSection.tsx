@@ -11,13 +11,13 @@ const TESTIMONIALS = [
         saved: "$400 saved",
         avatar: "/avatar-marcus.png",
         quote: "My mechanic quoted me $1,340 for a brake job and I almost just paid it. FairDealCheck flagged the labor rate as 38% above local benchmark. I walked out paying $940.",
-        color: "bg-navy text-white",
+        color: "bg-slate-900 text-white",
         chipColor: "bg-white/10 text-white/70 border-white/10",
         savedColor: "text-emerald-400",
         quoteColor: "text-white/80",
         nameColor: "text-white",
         locColor: "text-white/50",
-        borderColor: "border-navy/20",
+        borderColor: "border-slate-800",
     },
     {
         name: "Sandra L.",
@@ -29,10 +29,10 @@ const TESTIMONIALS = [
         color: "bg-white",
         chipColor: "bg-orange-50 text-orange-600 border-orange-100",
         savedColor: "text-emerald-600",
-        quoteColor: "text-neutral-600",
-        nameColor: "text-navy",
-        locColor: "text-neutral-400",
-        borderColor: "border-neutral-100",
+        quoteColor: "text-slate-600",
+        nameColor: "text-slate-900",
+        locColor: "text-slate-500",
+        borderColor: "border-slate-200",
     },
     {
         name: "James K.",
@@ -44,10 +44,10 @@ const TESTIMONIALS = [
         color: "bg-white",
         chipColor: "bg-violet-50 text-violet-600 border-violet-100",
         savedColor: "text-emerald-600",
-        quoteColor: "text-neutral-600",
-        nameColor: "text-navy",
-        locColor: "text-neutral-400",
-        borderColor: "border-neutral-100",
+        quoteColor: "text-slate-600",
+        nameColor: "text-slate-900",
+        locColor: "text-slate-500",
+        borderColor: "border-slate-200",
     },
     {
         name: "Patricia M.",
@@ -59,10 +59,10 @@ const TESTIMONIALS = [
         color: "bg-white",
         chipColor: "bg-pink-50 text-pink-600 border-pink-100",
         savedColor: "text-emerald-600",
-        quoteColor: "text-neutral-600",
-        nameColor: "text-navy",
-        locColor: "text-neutral-400",
-        borderColor: "border-neutral-100",
+        quoteColor: "text-slate-600",
+        nameColor: "text-slate-900",
+        locColor: "text-slate-500",
+        borderColor: "border-slate-200",
     },
     {
         name: "Derek W.",
@@ -74,10 +74,10 @@ const TESTIMONIALS = [
         color: "bg-white",
         chipColor: "bg-amber-50 text-amber-600 border-amber-100",
         savedColor: "text-emerald-600",
-        quoteColor: "text-neutral-600",
-        nameColor: "text-navy",
-        locColor: "text-neutral-400",
-        borderColor: "border-neutral-100",
+        quoteColor: "text-slate-600",
+        nameColor: "text-slate-900",
+        locColor: "text-slate-500",
+        borderColor: "border-slate-200",
     },
     {
         name: "Rachel H.",
@@ -89,10 +89,10 @@ const TESTIMONIALS = [
         color: "bg-white",
         chipColor: "bg-cyan-50 text-cyan-600 border-cyan-100",
         savedColor: "text-emerald-600",
-        quoteColor: "text-neutral-600",
-        nameColor: "text-navy",
-        locColor: "text-neutral-400",
-        borderColor: "border-neutral-100",
+        quoteColor: "text-slate-600",
+        nameColor: "text-slate-900",
+        locColor: "text-slate-500",
+        borderColor: "border-slate-200",
     },
     {
         name: "Tony B.",
@@ -104,55 +104,35 @@ const TESTIMONIALS = [
         color: "bg-white",
         chipColor: "bg-emerald-50 text-emerald-600 border-emerald-100",
         savedColor: "text-emerald-600",
-        quoteColor: "text-neutral-600",
-        nameColor: "text-navy",
-        locColor: "text-neutral-400",
-        borderColor: "border-neutral-100",
+        quoteColor: "text-slate-600",
+        nameColor: "text-slate-900",
+        locColor: "text-slate-500",
+        borderColor: "border-slate-200",
     },
 ];
 
-function Stars() {
-    return (
-        <div className="flex gap-0.5">
-            {[1, 2, 3, 4, 5].map((i) => (
-                <svg key={i} className="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-            ))}
-        </div>
-    );
-}
+// Stars removed for a more financial, data-driven aesthetic
 
 function Card({ t }: { t: typeof TESTIMONIALS[0] }) {
     return (
-        <div className={`flex-shrink-0 w-80 rounded-3xl border p-6 flex flex-col gap-3 shadow-sm ${t.color} ${t.borderColor}`}>
+        <div className="flex-shrink-0 w-80 rounded-lg border border-slate-200 bg-white p-6 flex flex-col shadow-sm">
             {/* Top row */}
-            <div className="flex items-center justify-between">
-                <span className={`text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border ${t.chipColor}`}>
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
                     {t.category}
                 </span>
-                <span className={`text-xs font-bold ${t.savedColor}`}>💰 {t.saved}</span>
+                <span className="text-[11px] font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-sm border border-emerald-100">{t.saved}</span>
             </div>
 
-            <Stars />
-
             {/* Quote */}
-            <p className={`text-sm leading-relaxed ${t.quoteColor}`}>
+            <p className="text-[13px] leading-relaxed text-slate-600 mb-6">
                 &ldquo;{t.quote}&rdquo;
             </p>
 
             {/* Author */}
-            <div className="flex items-center gap-2.5 pt-2 mt-auto border-t border-current/10">
-                <div className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 border-2 border-white/20">
-                    <Image src={t.avatar} alt={t.name} width={36} height={36} className="object-cover w-full h-full" />
-                </div>
-                <div className="flex-1 min-w-0">
-                    <p className={`text-sm font-bold ${t.nameColor}`}>{t.name}</p>
-                    <p className={`text-[11px] ${t.locColor}`}>{t.location}</p>
-                </div>
-                <svg className={`w-4 h-4 flex-shrink-0 ${t.savedColor}`} fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
+            <div className="flex flex-col pt-3 mt-auto border-t border-slate-100">
+                <p className="text-[13px] font-semibold tracking-tight text-slate-900">{t.name}</p>
+                <p className="text-[10px] uppercase tracking-widest text-slate-500 mt-0.5">{t.location}</p>
             </div>
         </div>
     );
@@ -163,17 +143,17 @@ export function TestimonialsSection() {
     const all = [...TESTIMONIALS, ...TESTIMONIALS];
 
     return (
-        <section className="pb-24 overflow-hidden">
+        <section className="pb-32 overflow-hidden border-t border-slate-100 pt-24 mt-12 bg-slate-50">
             {/* Header */}
             <div className="text-center mb-10 px-6">
-                <div className="inline-flex items-center gap-2 text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-                    Real Results
+                <div className="inline-flex items-center gap-2 text-slate-500 bg-white border border-slate-200 px-3 py-1 rounded-sm text-[10px] font-bold uppercase tracking-widest mb-4">
+                    Verified Outcomes
                 </div>
-                <h2 className="text-4xl font-bold text-navy tracking-tight mb-2">
-                    People who stopped paying full price.
+                <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-2">
+                    Data-backed negotiations.
                 </h2>
-                <p className="text-navy/50 text-sm">
-                    From brake jobs to HVAC to dental bills — real savings from real people.
+                <p className="text-slate-500 text-sm">
+                    Consistent fee reductions across multiple service sectors.
                 </p>
             </div>
 
@@ -199,7 +179,7 @@ export function TestimonialsSection() {
         }
       `}</style>
 
-            <p className="text-center text-xs text-neutral-400 mt-6 px-6">
+            <p className="text-center text-[10px] font-bold text-slate-400 mt-10 px-6 uppercase tracking-widest max-w-2xl mx-auto">
                 All outcomes reflect individual results. Savings vary based on region, service type, and negotiation.
             </p>
         </section>
