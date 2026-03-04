@@ -44,6 +44,21 @@ export function Navbar() {
                             Pricing
                         </span>
                     </Link>
+                    <Link href="/blog" className="hidden lg:block">
+                        <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">
+                            Blog
+                        </span>
+                    </Link>
+                    <Link href="/methodology" className="hidden lg:block">
+                        <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">
+                            Methodology
+                        </span>
+                    </Link>
+                    <Link href="/transparency" className="hidden lg:block">
+                        <span className="text-sm font-medium text-navy/60 hover:text-navy transition-colors">
+                            Transparency
+                        </span>
+                    </Link>
 
                     {/* Auth State */}
                     {isSignedIn ? (
