@@ -140,8 +140,7 @@ export function DemoVideo() {
         {/* ── SCENE AREA ── */}
         <div
           ref={containerRef}
-          className="relative bg-[#f8fafc] overflow-hidden"
-          style={{ aspectRatio: "16/9" }}
+          className="relative bg-[#f8fafc] overflow-hidden w-full aspect-[4/3] md:aspect-video"
         >
           {/* Scene progress dots */}
           <div className="absolute top-3 right-4 z-20 flex items-center gap-1.5">
@@ -157,33 +156,33 @@ export function DemoVideo() {
 
           {/* ── SCENE 1: HOOK ── */}
           <div className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-500 ${is(0) ? "opacity-100" : "opacity-0"}`}>
-            <div className="relative mb-6" style={{ transform: "rotate(-1.5deg)" }}>
-              <div className="bg-white border border-neutral-200 rounded-2xl shadow-lg p-6 w-72">
+            <div className="relative mb-4 sm:mb-6" style={{ transform: "rotate(-1.5deg)" }}>
+              <div className="bg-white border border-neutral-200 rounded-2xl shadow-lg p-4 sm:p-6 w-64 sm:w-72">
                 <p className="text-[10px] font-bold tracking-widest uppercase text-neutral-400 mb-3">Repair Estimate #4821</p>
                 {[["Brake Pads & Rotors", "$780"], ["Labor (3.5 hrs)", "$560"]].map(([l, v]) => (
-                  <div key={l} className="flex justify-between text-xs py-1.5 border-b border-neutral-50 text-neutral-600"><span>{l}</span><span>{v}</span></div>
+                  <div key={l} className="flex justify-between text-[11px] sm:text-xs py-1.5 border-b border-neutral-50 text-neutral-600"><span>{l}</span><span>{v}</span></div>
                 ))}
-                <div className="flex justify-between text-base font-black pt-3 text-red-600"><span>TOTAL DUE</span><span>$1,340</span></div>
+                <div className="flex justify-between text-sm sm:text-base font-black pt-3 text-red-600"><span>TOTAL DUE</span><span>$1,340</span></div>
               </div>
               <div className={`absolute top-3 right-3 border-2 border-red-500 text-red-500 text-[9px] font-black px-2 py-0.5 rounded rotate-12 bg-white tracking-widest transition-opacity duration-500 ${is(0) ? "opacity-100 delay-500" : "opacity-0"}`}>FAIR?</div>
             </div>
             <div className={`text-center px-4 transition-all duration-500 ${is(0) ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-3"}`}>
-              <p className="text-xl font-black text-navy leading-tight mb-1">Think they are overcharging you?<br /><span className="text-red-500">They probably are.</span></p>
-              <p className="text-xs text-neutral-500 max-w-xs mx-auto">And an AI chatbot can&apos;t prove it. <strong className="text-navy">Data can.</strong></p>
+              <p className="text-lg sm:text-xl font-black text-navy leading-tight mb-1">Think they are overcharging you?<br /><span className="text-red-500">They probably are.</span></p>
+              <p className="text-[11px] sm:text-xs text-neutral-500 max-w-xs mx-auto">And an AI chatbot can&apos;t prove it. <strong className="text-navy">Data can.</strong></p>
             </div>
           </div>
 
           {/* ── SCENE 2: UPLOAD & MECHANISM ── */}
           <div className={`absolute inset-0 flex flex-col items-center justify-center p-4 transition-opacity duration-500 ${is(1) ? "opacity-100" : "opacity-0"}`}>
-            <div className="bg-white border border-neutral-200 rounded-2xl shadow p-5 w-full max-w-[460px]">
+            <div className="bg-white border border-neutral-200 rounded-2xl shadow p-4 sm:p-5 w-full max-w-[460px]">
               <div className="flex items-center gap-2 mb-3">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-400" /><span className="w-2.5 h-2.5 rounded-full bg-yellow-400" /><span className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                <span className="flex-1 bg-neutral-100 rounded text-[10px] text-neutral-400 px-2 py-1 ml-1">fairdealcheck.com/analyze</span>
+                <span className="flex-1 bg-neutral-100 rounded text-[10px] text-neutral-400 px-2 py-1 ml-1 overflow-hidden whitespace-nowrap text-ellipsis max-w-[150px] sm:max-w-none">fairdealcheck.com/analyze</span>
               </div>
-              <div className={`border-2 border-dashed rounded-xl p-7 text-center transition-all duration-500 ${is(1) ? "border-emerald-400 bg-emerald-50/40" : "border-neutral-200"}`}>
-                <div className="text-2xl mb-1">🛡️</div>
-                <p className="text-sm font-bold text-navy">Proprietary Database Analysis</p>
-                <p className="text-xs text-neutral-400 mt-1">Cross-referencing 84,000 distributor catalogs...</p>
+              <div className={`border-2 border-dashed rounded-xl p-5 sm:p-7 text-center transition-all duration-500 ${is(1) ? "border-emerald-400 bg-emerald-50/40" : "border-neutral-200"}`}>
+                <div className="text-xl sm:text-2xl mb-1">🛡️</div>
+                <p className="text-xs sm:text-sm font-bold text-navy">Proprietary Database Analysis</p>
+                <p className="text-[10px] sm:text-xs text-neutral-400 mt-1">Cross-referencing 84,000 distributor catalogs...</p>
                 <div className={`mt-3 inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-lg transition-opacity duration-500 ${is(1) ? "opacity-100 delay-700" : "opacity-0"}`}>
                   📍 Matching Local ZIP Code Benchmarks...
                 </div>
@@ -222,30 +221,30 @@ export function DemoVideo() {
 
           {/* ── SCENE 4: SCRIPT ── */}
           <div className={`absolute inset-0 flex items-center justify-center p-4 transition-opacity duration-500 ${is(3) ? "opacity-100" : "opacity-0"}`}>
-            <div className="bg-white border border-neutral-200 rounded-2xl shadow-lg p-6 w-full max-w-[500px]">
+            <div className="bg-white border border-neutral-200 rounded-2xl shadow-lg p-5 sm:p-6 w-full max-w-[500px]">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 bg-emerald-50 border border-emerald-100 rounded-lg flex items-center justify-center text-sm">💬</div>
-                <p className="font-bold text-sm text-navy">Then we generate <span className="text-emerald-600">the exact counter-offer.</span></p>
+                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-emerald-50 border border-emerald-100 rounded-lg flex items-center justify-center text-xs sm:text-sm">💬</div>
+                <p className="font-bold text-xs sm:text-sm text-navy">Then we generate <span className="text-emerald-600">the exact counter-offer.</span></p>
               </div>
-              <div className={`bg-neutral-50 border-l-4 border-l-emerald-500 rounded-r-xl p-4 text-sm text-neutral-600 italic leading-relaxed transition-all duration-500 ${is(3) ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-2"}`}>
+              <div className={`bg-neutral-50 border-l-4 border-l-emerald-500 rounded-r-xl p-3 sm:p-4 text-[11px] sm:text-sm text-neutral-600 italic leading-relaxed transition-all duration-500 ${is(3) ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-2"}`}>
                 &ldquo;I looked at regional pricing for Dallas. The parts are coming in 55% over retail at{" "}
                 <strong className="text-navy not-italic">$780.</strong> I would like to move forward, but can we use OEM-equivalent parts at standard retail pricing, closer to $380?&rdquo;
               </div>
               <div className={`flex flex-wrap gap-2 mt-3 transition-opacity duration-500 ${is(3) ? "opacity-100 delay-[700ms]" : "opacity-0"}`}>
-                <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-md">Marcus saved $400 in 5 minutes</span>
+                <span className="text-[9px] sm:text-[10px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-md">Marcus saved $400 in 5 minutes</span>
               </div>
             </div>
           </div>
 
           {/* ── SCENE 5: TRANSPARENCY ── */}
           <div className={`absolute inset-0 flex flex-col items-center justify-center p-4 transition-opacity duration-500 ${is(4) ? "opacity-100" : "opacity-0"}`}>
-            <div className={`bg-navy border border-navy shadow-lg p-8 rounded-full flex items-center justify-center w-32 h-32 mb-6 transition-all duration-500 ${is(4) ? "scale-100 opacity-100 delay-200" : "scale-90 opacity-0"}`}>
-              <svg width="48" height="48" viewBox="0 0 28 28" fill="none">
+            <div className={`bg-navy border border-navy shadow-lg p-6 sm:p-8 rounded-full flex items-center justify-center w-24 h-24 sm:w-32 sm:h-32 mb-4 sm:mb-6 transition-all duration-500 ${is(4) ? "scale-100 opacity-100 delay-200" : "scale-90 opacity-0"}`}>
+              <svg width="40" height="40" className="sm:w-[48px] sm:h-[48px]" viewBox="0 0 28 28" fill="none">
                 <path d="M14 2L4 6.5V13.5C4 19.025 8.4 24.225 14 25.5C19.6 24.225 24 19.025 24 13.5V6.5L14 2Z" fill="#10b981" />
                 <path d="M10 14L13 17L18 11" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
-            <h3 className={`text-2xl font-black text-navy text-center leading-tight mb-2 transition-all duration-500 ${is(4) ? "opacity-100 translate-y-0 delay-[400ms]" : "opacity-0 translate-y-3"}`}>
+            <h3 className={`text-xl sm:text-2xl font-black text-navy text-center leading-tight mb-2 transition-all duration-500 ${is(4) ? "opacity-100 translate-y-0 delay-[400ms]" : "opacity-0 translate-y-3"}`}>
               100% Independent.
             </h3>
             <div className={`flex flex-col items-center gap-2 transition-opacity duration-500 ${is(4) ? "opacity-100 delay-[600ms]" : "opacity-0"}`}>
@@ -256,14 +255,14 @@ export function DemoVideo() {
 
           {/* ── SCENE 6: CTA ── */}
           <div className={`absolute inset-0 flex flex-col items-center justify-center gap-3 transition-opacity duration-500 ${is(5) ? "opacity-100 bg-navy" : "opacity-0"}`}>
-            <h3 className={`text-4xl font-black text-white text-center leading-tight transition-all duration-500 ${is(5) ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-3"}`}>
+            <h3 className={`text-2xl sm:text-4xl font-black text-white text-center leading-tight transition-all duration-500 ${is(5) ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-3"}`}>
               GET HARD DATA.<br /><span className="text-emerald-400">NOT GUESSES.</span>
             </h3>
-            <p className={`text-sm text-white/60 text-center max-w-sm transition-opacity duration-500 ${is(5) ? "opacity-100 delay-[400ms]" : "opacity-0"}`}>
+            <p className={`text-[11px] sm:text-sm text-white/60 text-center max-w-sm transition-opacity duration-500 ${is(5) ? "opacity-100 delay-[400ms]" : "opacity-0"}`}>
               Stop guessing. Don&apos;t pay that bill yet.
             </p>
             <div className={`mt-4 transition-all duration-400 ${is(5) ? "opacity-100 scale-100 delay-[600ms]" : "opacity-0 scale-95"}`}>
-              <a href="/analyze" className="inline-flex items-center gap-2 bg-emerald-500 text-navy font-black text-sm px-8 py-4 rounded-full shadow-lg hover:bg-emerald-400 transition-colors">
+              <a href="/analyze" className="inline-flex items-center gap-2 bg-emerald-500 text-navy font-black text-[11px] sm:text-sm px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:bg-emerald-400 transition-colors">
                 Audit My Quote In 60 Seconds →
               </a>
             </div>

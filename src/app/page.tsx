@@ -77,9 +77,9 @@ export default function Home() {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
-            <div className="flex items-center justify-center gap-2 bg-neutral-50 border border-neutral-200 py-2 px-4 rounded-full mt-2">
-              <ShieldCheck className="w-4 h-4 text-emerald-600" />
-              <p className="text-[11px] font-bold text-navy uppercase tracking-wider">
+            <div className="flex items-center justify-center gap-2 bg-neutral-50 border border-neutral-200 py-2 px-3 sm:px-4 rounded-full mt-2 self-center">
+              <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+              <p className="text-[9px] sm:text-[11px] font-bold text-navy uppercase tracking-wider text-center sm:text-left">
                 100% Consumer Funded. Zero Contractor Kickbacks.
               </p>
             </div>
@@ -231,18 +231,18 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-neutral-400 border-t border-neutral-200 pt-8">
+        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 text-sm text-neutral-400 border-t border-neutral-200 pt-8 text-center md:text-left">
           <div className="flex items-center space-x-2">
             <ShieldCheck className="h-5 w-5 opacity-40" />
             <span className="font-semibold tracking-tight text-neutral-400 opacity-60">FairDealTechnologies</span>
           </div>
-          <div className="flex items-center space-x-8 font-medium">
+          <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-3 font-medium">
             <Link href="/transparency" className="hover:text-navy transition-colors">Transparency</Link>
             <Link href="/privacy" className="hover:text-navy transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-navy transition-colors">Terms of Service</Link>
             <Link href="/contact" className="hover:text-navy transition-colors">Press & Partnerships</Link>
           </div>
-          <p>© {new Date().getFullYear()} FairDeal Technologies Inc.</p>
+          <p className="mt-4 md:mt-0 text-xs">© {new Date().getFullYear()} FairDeal Technologies Inc.</p>
         </div>
       </footer>
     </div>
