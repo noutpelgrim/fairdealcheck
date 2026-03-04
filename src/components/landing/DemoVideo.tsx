@@ -24,6 +24,7 @@ export function DemoVideo() {
   const [playing, setPlaying] = useState(false);
   const [started, setStarted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const playerRef = useRef<HTMLDivElement>(null);
   const startTimeRef = useRef<number | null>(null);
   const pausedAtRef = useRef<number>(0);
   const rafRef = useRef<number | null>(null);
@@ -78,6 +79,25 @@ export function DemoVideo() {
     setPlaying((p) => !p);
   }
 
+  function toggleFullscreen() {
+    const el = playerRef.current as any;
+    if (!el) return;
+
+    if (!document.fullscreenElement && !(document as any).webkitFullscreenElement) {
+      if (el.requestFullscreen) {
+        el.requestFullscreen().catch(console.error);
+      } else if (el.webkitRequestFullscreen) {
+        el.webkitRequestFullscreen();
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if ((document as any).webkitExitFullscreen) {
+        (document as any).webkitExitFullscreen();
+      }
+    }
+  }
+
   function seek(e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) {
     const target = e.currentTarget;
     const rect = target.getBoundingClientRect();
@@ -115,7 +135,7 @@ export function DemoVideo() {
       </div>
 
       {/* ── VIDEO PLAYER SHELL ── */}
-      <div className="rounded-2xl overflow-hidden shadow-2xl border border-neutral-800 bg-[#111318]">
+      <div ref={playerRef} className="rounded-2xl overflow-hidden shadow-2xl border border-neutral-800 bg-[#111318]">
 
         {/* ── TOP BAR (title bar) ── */}
         <div className="flex items-center justify-between px-4 py-2.5 bg-[#1c1f26] border-b border-white/5">
@@ -346,8 +366,8 @@ export function DemoVideo() {
               <span className="text-white/30 text-[10px] font-semibold tracking-wide select-none">
                 {SCENES[activeScene].label}
               </span>
-              {/* Fullscreen icon (decorative) */}
-              <button className="text-white/40 hover:text-white/70 transition-colors" aria-label="Fullscreen">
+              {/* Fullscreen icon */}
+              <button onClick={toggleFullscreen} className="text-white/40 hover:text-white/70 transition-colors" aria-label="Fullscreen">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />
                 </svg>
